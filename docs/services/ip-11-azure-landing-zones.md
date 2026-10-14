@@ -1,10 +1,14 @@
 # Azure Landing Zones — Design & Implementation
 
-*Reusable technical service package*
+> **IP-11 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** ออกแบบและวางรากฐาน Azure ให้ Workload Teams นำระบบขึ้นใช้งานได้ภายใต้ Governance, Security, Connectivity และ Operations ที่กำหนดร่วมกัน
 
-ออกแบบและวางรากฐาน Azure ให้ Workload Teams นำระบบขึ้นใช้งานได้ภายใต้ Governance, Security, Connectivity และ Operations ที่กำหนดร่วมกัน
+## เมื่อใดควรใช้บริการนี้
+
+- กำลังเริ่มหรือขยาย Azure แต่ยังไม่มี Governance และ Subscription Standard
+- หลายทีมต้องใช้ Network, Identity, Security และ Monitoring ร่วมกัน
+- ต้องการ Foundation ที่สร้างซ้ำและรองรับ Workload Onboarding ได้
 
 ## Scope
 
@@ -44,15 +48,46 @@ flowchart LR
 
 Landing Zone Architecture & Decision Record, Platform IaC/Configuration, Policy & RBAC Matrix, Validation Evidence และ Operational Handover
 
-## Expected Outcome
+## Decisions & Outcomes
 
-ได้ Cloud Foundation และ Workload Onboarding Pattern สำหรับการขยาย Azure อย่างมีมาตรฐาน
+- กำหนด Platform vs Application Landing Zone Ownership ชัดเจน
+- มี Policy, RBAC, Connectivity และ IaC Foundation ตาม Scope
+- รู้กระบวนการ Onboard Workloads โดยไม่ข้าม Guardrails
 
-## Boundary
+## Engineering Assurance
+
+- กำหนด Platform Controls ก่อนอนุญาตให้ Workload Teams ขยายการใช้งาน
+- ทดสอบ Network, Access และ Policy ในวงจำกัดก่อนใช้จริง
+
+**Failure & Recovery:** หาก Policy หรือ Connectivity ที่เพิ่มกระทบ Workloads ให้หยุด Rollout และแก้ไข Assignment/Configuration ภายใต้ Change Control
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> Requirements
+  Requirements --> Designed: design areas agreed
+  Designed --> Approved: governance review
+  Approved --> Deployed: IaC and configuration
+  Deployed --> Verified: policy / identity / network tests
+  Deployed --> Rework: integration fails
+  Rework --> Designed: revise design
+  Verified --> Operational: owners accept handover
+  Operational --> [*]
+```
+
+## Assumptions & Boundaries
 
 ไม่รวมการย้ายทุก Application หรือค่าใช้จ่ายทรัพยากร Azure; จำนวน Subscriptions, Regions, Connectivity และ Shared Services ต้องตกลงก่อนประมาณงาน
+
+## ก่อนเริ่มงาน
+
+เตรียม Azure Tenant/Subscription Model, Network/DNS Requirements, Security Policies และทีม Platform Owner
 
 ## References
 
 - [Azure landing zone design areas](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-areas)
 - [Azure landing zone concepts](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
