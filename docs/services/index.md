@@ -24,41 +24,42 @@
 - **Standard Delivery** — ขั้นตอนงานและ Deliverables ในระดับที่กำหนด Scope ได้
 - **Engineering Assurance** — เงื่อนไขความปลอดภัย, State Transitions, Failure/Recovery และข้อจำกัด
 
-## Explore All 18 Service Packages
+## Browse by Category
 
-### Azure & Cloud Adoption
+เลือกหมวดบริการเพื่อขยายรายการ แล้วคลิก Service IP เพื่อดู Architecture, Scope และ Deliverables โดยตรง
 
-- **IP-11** — [Azure Landing Zones](ip-11-azure-landing-zones.md)
-- **IP-12** — [Azure Cloud Adoption Framework — End-to-End](ip-12-azure-cloud-adoption-framework.md)
-- **IP-16** — [Azure Advisor Assessment & Remediation](ip-16-azure-advisor-remediation.md)
+???+ abstract "Azure & Cloud Adoption · 3 services"
 
-### Windows Server & Infrastructure
+    - **IP-11** — [Azure Landing Zones](ip-11-azure-landing-zones.md)
+    - **IP-12** — [Azure Cloud Adoption Framework — End-to-End](ip-12-azure-cloud-adoption-framework.md)
+    - **IP-16** — [Azure Advisor Assessment & Remediation](ip-16-azure-advisor-remediation.md)
 
-- **IP-01** — [Windows Server Migration Assessment & Roadmap](ip-01-windows-server-migration-assessment.md)
-- **IP-02** — [Windows Server Migration Implementation](ip-02-windows-server-migration-implementation.md)
-- **IP-04** — [Linux Platform Standardization & Security](ip-04-linux-standardization-hardening.md)
-- **IP-14** — [AD DS Assessment & Remediation](ip-14-ad-ds-assessment-remediation.md)
-- **IP-17** — [Windows Server CIS Benchmark](ip-17-windows-server-cis-benchmark.md)
+??? abstract "Windows Server & Infrastructure · 5 services"
 
-### Identity & Security
+    - **IP-01** — [Windows Server Migration Assessment & Roadmap](ip-01-windows-server-migration-assessment.md)
+    - **IP-02** — [Windows Server Migration Implementation](ip-02-windows-server-migration-implementation.md)
+    - **IP-04** — [Linux Platform Standardization & Security](ip-04-linux-standardization-hardening.md)
+    - **IP-14** — [AD DS Assessment & Remediation](ip-14-ad-ds-assessment-remediation.md)
+    - **IP-17** — [Windows Server CIS Benchmark](ip-17-windows-server-cis-benchmark.md)
 
-- **IP-03** — [Service Account Security Assessment & Remediation](ip-03-service-account-security.md)
-- **IP-05** — [AWS Identity & Access Baseline](ip-05-aws-identity-access-baseline.md)
-- **IP-13** — [Hybrid Identity Assessment & Remediation](ip-13-hybrid-identity-assessment-remediation.md)
+??? abstract "Identity & Security · 3 services"
 
-### Microsoft 365 & Zero Trust
+    - **IP-03** — [Service Account Security Assessment & Remediation](ip-03-service-account-security.md)
+    - **IP-05** — [AWS Identity & Access Baseline](ip-05-aws-identity-access-baseline.md)
+    - **IP-13** — [Hybrid Identity Assessment & Remediation](ip-13-hybrid-identity-assessment-remediation.md)
 
-- **IP-06** — [Microsoft 365 Security Baseline](ip-06-m365-security-baseline.md)
-- **IP-07** — [Microsoft 365 Compliance Readiness](ip-07-m365-compliance-readiness.md)
-- **IP-08** — [Secure AI Apps & Data](ip-08-secure-ai-apps-data.md)
-- **IP-15** — [Microsoft 365 Zero Trust](ip-15-microsoft-365-zero-trust.md)
-- **IP-18** — [Microsoft 365 CIS Benchmark](ip-18-m365-cis-benchmark.md)
+??? abstract "Microsoft 365 & Zero Trust · 5 services"
 
-### AI & Technical Support
+    - **IP-06** — [Microsoft 365 Security Baseline](ip-06-m365-security-baseline.md)
+    - **IP-07** — [Microsoft 365 Compliance Readiness](ip-07-m365-compliance-readiness.md)
+    - **IP-08** — [Secure AI Apps & Data](ip-08-secure-ai-apps-data.md)
+    - **IP-15** — [Microsoft 365 Zero Trust](ip-15-microsoft-365-zero-trust.md)
+    - **IP-18** — [Microsoft 365 CIS Benchmark](ip-18-m365-cis-benchmark.md)
 
-- **IP-09** — [Enterprise MCP Server](ip-09-enterprise-mcp-server.md)
-- **IP-10** — [Professional Support](ip-10-professional-support.md)
+??? abstract "AI & Technical Support · 2 services"
 
+    - **IP-09** — [Enterprise MCP Server](ip-09-enterprise-mcp-server.md)
+    - **IP-10** — [Professional Support](ip-10-professional-support.md)
 ## Discuss Your Project Scope
 
 ก่อนกำหนดขอบเขตจริง ทีมจะร่วมกันยืนยันเป้าหมาย จำนวน Workloads/Accounts หรือ Tenants ข้อจำกัดด้าน Compatibility และสิ่งที่จะใช้เป็น Acceptance Criteria
