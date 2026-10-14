@@ -10,6 +10,12 @@
 - มี Domain Controllers, Member Servers หรือ Stand-alone Roles ที่ต้องใช้ Policy ต่างกัน
 - กังวล Hardening แล้วทำให้ Applications หรือ Management Tools ใช้งานไม่ได้
 
+## Decisions & Outcomes
+
+- ทราบ Applicable CIS Controls และ Findings ตาม Benchmark Version/Profile
+- เลือก Priority Remediation และ Exceptions ตาม Server Role
+- เห็น Compliance Delta พร้อม Functional Test Evidence
+
 ## Scope
 
 ครอบคลุม Windows Server Versions, Roles, Domain Controller/Member/Stand-alone Profiles ที่ตกลง พร้อมหลักฐาน Assessment, Risk-based Exceptions, Pilot Hardening และ Post-change Validation
@@ -42,12 +48,6 @@ flowchart LR
 
 Benchmark Scope/Profile Record, Control Assessment Results, Risk & Exception Register, Remediation Record, Reassessment Evidence และ Hardening Roadmap
 
-## Decisions & Outcomes
-
-- ทราบ Applicable CIS Controls และ Findings ตาม Benchmark Version/Profile
-- เลือก Priority Remediation และ Exceptions ตาม Server Role
-- เห็น Compliance Delta พร้อม Functional Test Evidence
-
 ## Engineering Assurance
 
 - ไม่ใช้ Baseline เหมือนกันทั้งหมดโดยไม่ประเมิน Server Roles และ Dependencies
@@ -78,9 +78,17 @@ Benchmark Versions และ Profiles เปลี่ยนตาม Release; �
 
 เตรียม OS/Role Inventory, Benchmark Version/Profile, GPO Ownership, App Owners และ Recovery Access
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-17)**
+
 ## References
 
 - [Official CIS Windows Server Benchmarks](https://www.cisecurity.org/benchmark/microsoft_windows_server)
 
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
