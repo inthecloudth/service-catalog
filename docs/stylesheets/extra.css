@@ -115,3 +115,42 @@
   object-fit: cover;
   display: block;
 }
+
+/* Service category browser: compact, accessible expandable rows. */
+.md-typeset details.abstract {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: none;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.md-typeset details.abstract > summary {
+  background-color: #ffffff;
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.md-typeset details.abstract > summary:hover {
+  background-color: #f8fafc;
+}
+
+.md-typeset details.abstract > summary:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: -2px;
+}
+
+.md-typeset details.abstract[open] > summary {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.md-typeset details.abstract ul {
+  margin-top: 12px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.65;
+}
