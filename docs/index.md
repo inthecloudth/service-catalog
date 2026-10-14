@@ -8,7 +8,7 @@
 
 **[สำรวจบริการทั้งหมด 18 IP →](services/index.md)**
 
-## เรื่องที่เราช่วยองค์กรตัดสินใจ
+## Decisions We Help You Make
 
 | ความต้องการ | เริ่มจากบริการ |
 |---|---|
@@ -19,7 +19,7 @@
 | วัด Security Baseline ตามหลักฐานและข้อยกเว้นจริง | [Windows Server CIS](services/ip-17-windows-server-cis-benchmark.md) · [Microsoft 365 CIS](services/ip-18-m365-cis-benchmark.md) |
 | เชื่อม AI กับระบบองค์กรผ่านเครื่องมือที่ควบคุมสิทธิ์ได้ | [Enterprise MCP Server](services/ip-09-enterprise-mcp-server.md) |
 
-## วิธีทำงานของเรา
+## Our Approach
 
 **Understand → Design → Deliver → Verify**
 
@@ -27,7 +27,7 @@
 
 Architecture และ State Models ในแต่ละหน้ามีไว้ช่วยอธิบาย Design Intent, Control Boundaries และ Failure Scenarios ไม่ใช่การนำ Production Topology ของลูกค้ามาเผยแพร่
 
-## พูดคุยเรื่อง Scope
+## Discuss Your Project Scope
 
 หากมีระบบหรือโครงการที่กำลังประเมินอยู่ ส่งภาพรวม Environment, ปัญหาที่ต้องแก้ และเป้าหมายที่ต้องการได้ที่ **[info@inthecloud.co.th](mailto:info@inthecloud.co.th?subject=Cloud%20Service%20Discussion)**
 
