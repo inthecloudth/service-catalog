@@ -1,10 +1,14 @@
 # Microsoft 365 Zero Trust — Integrated Security Program
 
-*Reusable technical service package*
+> **IP-15 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** ประเมินและยกระดับ Zero Trust สำหรับ Microsoft 365 ทั้ง Identity, Device, Apps, Threat Protection, Information Protection และ Governance โดยใช้การปรับใช้แบบเป็นระยะ
 
-ประเมินและยกระดับ Zero Trust สำหรับ Microsoft 365 ทั้ง Identity, Device, Apps, Threat Protection, Information Protection และ Governance โดยใช้การปรับใช้แบบเป็นระยะ
+## เมื่อใดควรใช้บริการนี้
+
+- มี Microsoft 365 หลาย Workloads แต่ Control เรื่อง Identity, Device, App และ Data ไม่สอดคล้องกัน
+- ต้องการยกระดับ Zero Trust โดยไม่ Lockout ผู้ใช้หรือขัด Business Process
+- ต้องการภาพรวมของ Roadmap มากกว่าการปรับ Secure Score เป็นรายการ ๆ
 
 ## Scope
 
@@ -40,14 +44,45 @@ flowchart LR
 
 Zero Trust Gap Assessment, Policy Architecture, Pilot Evidence, Security Controls Matrix, Exception Register และ Adoption Roadmap
 
-## Expected Outcome
+## Decisions & Outcomes
 
-ได้เส้นทางการปรับใช้ Zero Trust ที่เชื่อม Access, Device, Apps และ Data Protection โดยมีหลักฐานการทดสอบ
+- ได้ Prioritized Zero Trust Roadmap ที่เชื่อม Policy กับ Business Risks
+- มี Policy Pilot และผลทดสอบ Access / Data Protection ใน Scope
+- เห็นความสัมพันธ์ของ Identity, Endpoint, Application และ Data Controls
 
-## Boundary
+## Engineering Assurance
+
+- ต้องมี Emergency Access และ Staged Rollout ก่อนบังคับใช้ Access Policies
+- Data Protection ต้องตรวจสอบที่ Source Permissions และ Effective Access
+
+**Failure & Recovery:** หากนโยบาย Access Control กระทบผู้ใช้งานสำคัญ ให้ใช้ Recovery Access และปรับ Pilot Scope จากผลการทดสอบ
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> Baseline
+  Baseline --> Prioritized: risks and journeys known
+  Prioritized --> Pilot: approvals and safeguards
+  Pilot --> Verified: access / threat / data tests
+  Pilot --> Reverted: business disruption
+  Reverted --> Prioritized: revise policy
+  Verified --> Expanded: phased rollout
+  Expanded --> Monitored: detection and exceptions
+  Monitored --> Prioritized: drift or new risk
+```
+
+## Assumptions & Boundaries
 
 เป็น Umbrella Package: งาน Purview/AI Apps เชิงลึกแยกได้เป็น IP-07 และ IP-08; การปรับใช้นโยบายทุก User/Device ขึ้นกับ Scope, License และ Change Approval
+
+## ก่อนเริ่มงาน
+
+เตรียม Identity/Device/Application Inventory, License Matrix, Critical User Journeys และ Security Owners
 
 ## References
 
 - [Zero Trust deployment with Microsoft 365](https://learn.microsoft.com/en-us/security/zero-trust/microsoft-365-zero-trust)
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
