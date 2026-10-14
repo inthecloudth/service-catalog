@@ -1,6 +1,8 @@
 site_name: In the Cloud - Service Catalog
 theme:
   name: material
+  logo: assets/inc-logo.webp
+  favicon: assets/inc-logo.webp
   palette:
     scheme: default
     primary: white
