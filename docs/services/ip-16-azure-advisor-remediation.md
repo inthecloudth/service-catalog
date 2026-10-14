@@ -1,10 +1,14 @@
 # Azure Advisor — Assessment & Remediation
 
-*Reusable technical service package*
+> **IP-16 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** เปลี่ยน Recommendations ของ Azure Advisor ให้เป็นรายการปรับปรุงที่จัดลำดับตาม Business Risk, Impact, Effort และ Change Windows พร้อมหลักฐาน Before/After
 
-เปลี่ยน Recommendations ของ Azure Advisor ให้เป็นรายการปรับปรุงที่จัดลำดับตาม Business Risk, Impact, Effort และ Change Windows พร้อมหลักฐาน Before/After
+## เมื่อใดควรใช้บริการนี้
+
+- Azure Advisor มี Recommendations จำนวนมากแต่ทีมไม่รู้ว่าควรเริ่มข้อไหน
+- Optimization ด้าน Cost, Performance และ Reliability อาจมี Trade-offs
+- ต้องการ Before/After Evidence และ Owner ของ Changes
 
 ## Scope
 
@@ -37,14 +41,46 @@ flowchart LR
 
 Advisor Recommendation Register, Prioritization & Risk Matrix, Remediation Plan, Change Log, Before/After Evidence และ Follow-up Backlog
 
-## Expected Outcome
+## Decisions & Outcomes
 
-มี Remediation ที่ตรวจสอบได้และลำดับการปรับปรุงที่สอดคล้องกับความเสี่ยงและผลกระทบต่อบริการ
+- แยก Recommendations ที่ควรทำ, ควรรอ และไม่เหมาะกับสภาพแวดล้อมได้
+- มีแผน Remediation ที่จัดลำดับตามผลกระทบและการอนุมัติ
+- ได้หลักฐานผลลัพธ์และรายการที่ยังต้องติดตาม
 
-## Boundary
+## Engineering Assurance
+
+- ไม่แก้ Recommendations เพียงเพื่อให้จำนวนแจ้งเตือนลดลง
+- ทุกการเปลี่ยนต้องพิจารณา Availability, Cost, Performance และ Recovery
+
+**Failure & Recovery:** หากการปรับ Optimization ทำให้ Performance หรือ Availability ลดลง ให้ย้อนกลับ Change ที่เกี่ยวข้องและประเมิน Trade-off ใหม่
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> Discovered
+  Discovered --> Qualified: recommendation assessed
+  Qualified --> Deferred: risk accepted / not applicable
+  Qualified --> Approved: owner authorizes change
+  Approved --> Applied: controlled remediation
+  Applied --> Validated: expected outcome confirmed
+  Applied --> Reverted: regression detected
+  Reverted --> Qualified: reconsider approach
+  Validated --> [*]
+  Deferred --> [*]
+```
+
+## Assumptions & Boundaries
 
 ไม่รับประกันว่าทุก Recommendation จะเหมาะสมหรือแก้ไขได้ในครั้งเดียว; บางรายการต้องพิจารณา Cost/Architecture Trade-offs และมีการอัปเดตสถานะแบบล่าช้า
+
+## ก่อนเริ่มงาน
+
+เตรียม Subscription/Advisor Access, Owners, Service Targets, Baseline Metrics และ Change Windows
 
 ## References
 
 - [Azure Advisor overview](https://learn.microsoft.com/en-us/azure/advisor/advisor-overview)
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
