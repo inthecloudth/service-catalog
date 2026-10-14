@@ -2,7 +2,7 @@
 
 > **IP-02 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ดำเนินการย้าย Windows Server 2016 ตาม Migration Waves และแผน Cutover ที่ได้รับอนุมัติ
+**Expected Outcome:** ดำเนินการย้าย Windows Server 2016 ตาม Migration Waves และแผน Cutover ที่ได้รับอนุมัติ
 
 ## When to Engage
 
