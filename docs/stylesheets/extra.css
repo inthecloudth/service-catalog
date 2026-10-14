@@ -71,3 +71,34 @@
 .md-header__topic {
   color: #1f2937;
 }
+
+/* White footer */
+[data-md-color-scheme="default"] {
+  --md-footer-bg-color: #ffffff;
+  --md-footer-bg-color--dark: #ffffff;
+  --md-footer-fg-color: #1f2937;
+  --md-footer-fg-color--light: #475569;
+  --md-footer-fg-color--lighter: #64748b;
+}
+
+.md-footer {
+  background-color: #ffffff;
+  color: #1f2937;
+  border-top: 1px solid #e5e7eb;
+}
+
+.md-footer-meta {
+  background-color: #ffffff;
+  color: #475569;
+  border-top: 1px solid #e5e7eb;
+}
+
+.md-footer__link,
+.md-footer-meta a {
+  color: #475569;
+}
+
+.md-footer__link:hover,
+.md-footer-meta a:hover {
+  color: #2563eb;
+}
