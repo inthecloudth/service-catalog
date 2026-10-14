@@ -4,7 +4,7 @@
 
 เอกสารนี้ช่วยให้ IT Managers, Architects และผู้รับผิดชอบโครงการประเมินได้ว่า บริการใดเหมาะกับความเสี่ยงหรือแผนงานขององค์กร ก่อนลงรายละเอียดใน Statement of Work
 
-## เริ่มจากสิ่งที่องค์กรต้องการแก้
+## Start with Your Challenges
 
 | คำถามที่กำลังเจอ | บริการที่เกี่ยวข้อง |
 |---|---|
@@ -16,7 +16,7 @@
 | ต้องใช้ AI เชื่อม Enterprise Systems พร้อมควบคุมการเข้าถึง | [Enterprise MCP Server](ip-09-enterprise-mcp-server.md) · [Secure AI Apps & Data](ip-08-secure-ai-apps-data.md) |
 | ต้องจัดลำดับ Azure Recommendations หรือขอ Engineering Support | [Azure Advisor Remediation](ip-16-azure-advisor-remediation.md) · [Professional Support](ip-10-professional-support.md) |
 
-## แต่ละ Service Package อธิบายอะไร
+## What Each Service Package Covers
 
 - **When to engage** — สถานการณ์หรือปัญหาที่บริการเหมาะจะเข้าไปช่วย
 - **Decisions & Outcomes** — ข้อมูลและผลลัพธ์ที่ใช้ตัดสินใจต่อ
@@ -24,7 +24,7 @@
 - **Standard Delivery** — ขั้นตอนงานและ Deliverables ในระดับที่กำหนด Scope ได้
 - **Engineering Assurance** — เงื่อนไขความปลอดภัย, State Transitions, Failure/Recovery และข้อจำกัด
 
-## ดูบริการทั้งหมด 18 IP
+## Explore All 18 Service Packages
 
 ## Azure & Cloud Adoption
 
@@ -59,7 +59,7 @@
 - **IP-09** — [Enterprise MCP Server](ip-09-enterprise-mcp-server.md)
 - **IP-10** — [Professional Support](ip-10-professional-support.md)
 
-## เริ่มพูดคุยเรื่อง Scope
+## Discuss Your Project Scope
 
 ก่อนกำหนดขอบเขตจริง ทีมจะร่วมกันยืนยันเป้าหมาย จำนวน Workloads/Accounts หรือ Tenants ข้อจำกัดด้าน Compatibility และสิ่งที่จะใช้เป็น Acceptance Criteria
 
