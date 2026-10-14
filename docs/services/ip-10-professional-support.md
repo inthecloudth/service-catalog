@@ -10,6 +10,12 @@
 - มี Change, Health Check หรือ Architecture Decision ที่ต้องการ Second Opinion
 - ต้องการบันทึกงานและการส่งต่อความรู้ที่ติดตามได้
 
+## Decisions & Outcomes
+
+- มี Findings และแนวทางแก้ปัญหาที่เชื่อมกับ Evidence
+- ได้รับ Engineering Support และผลทดสอบหลังดำเนินการตาม Request
+- มี Work Log และ Handover สำหรับงานที่ดำเนินการ
+
 ## Scope
 
 Architecture/Design Review, Troubleshooting, Security Advisory, Configuration Review, Change Support, Health Check และ Knowledge Transfer ตาม Service Requests ที่ตกลง
@@ -49,12 +55,6 @@ flowchart LR
 
 Work Log/Time Sheet, Technical Findings และ Recommendation ตามงานที่ดำเนินการ
 
-## Decisions & Outcomes
-
-- มี Findings และแนวทางแก้ปัญหาที่เชื่อมกับ Evidence
-- ได้รับ Engineering Support และผลทดสอบหลังดำเนินการตาม Request
-- มี Work Log และ Handover สำหรับงานที่ดำเนินการ
-
 ## Engineering Assurance
 
 - ทุก Production Change ต้องมี Approval ตามกระบวนการองค์กร
@@ -89,5 +89,13 @@ stateDiagram-v2
 
 เตรียม Service Requests, Impact/Priority, เจ้าของระบบ และช่องทางอนุมัติ Change
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-10)**
+
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
