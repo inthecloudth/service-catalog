@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** เปลี่ยน Recommendations ของ Azure Advisor ให้เป็นรายการปรับปรุงที่จัดลำดับตาม Business Risk, Impact, Effort และ Change Windows พร้อมหลักฐาน Before/After
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - Azure Advisor มี Recommendations จำนวนมากแต่ทีมไม่รู้ว่าควรเริ่มข้อไหน
 - Optimization ด้าน Cost, Performance และ Reliability อาจมี Trade-offs
@@ -74,11 +74,11 @@ stateDiagram-v2
 
 ไม่รับประกันว่าทุก Recommendation จะเหมาะสมหรือแก้ไขได้ในครั้งเดียว; บางรายการต้องพิจารณา Cost/Architecture Trade-offs และมีการอัปเดตสถานะแบบล่าช้า
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Subscription/Advisor Access, Owners, Service Targets, Baseline Metrics และ Change Windows
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
