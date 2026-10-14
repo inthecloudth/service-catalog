@@ -10,6 +10,12 @@
 - กังวล Oversharing, Consent และการนำข้อมูลอ่อนไหวออกนอกขอบเขต
 - ต้องการ Policy Pilot ที่ไม่กระทบการใช้งานเกินจำเป็น
 
+## Decisions & Outcomes
+
+- ระบุ AI Apps, Permissions และ Data Exposure ที่ต้องจัดการก่อน
+- เชื่อม Risk กับ DLP, Labels และ App Controls ที่ใช้ได้ตาม License
+- เห็นผล Pilot และรายการงานที่ต้องดำเนินการเพิ่มเติม
+
 ## Scope
 
 ทบทวน AI/Copilot Usage, Enterprise/OAuth Apps, Data Exposure, DLP, Sensitivity Labels และ Cloud App Controls โดย Pilot การบังคับใช้นโยบายที่เลือก
@@ -52,12 +58,6 @@ flowchart LR
 
 AI App/Data Risk Assessment, Policy Matrix, Pilot Control Evidence และ Action Plan
 
-## Decisions & Outcomes
-
-- ระบุ AI Apps, Permissions และ Data Exposure ที่ต้องจัดการก่อน
-- เชื่อม Risk กับ DLP, Labels และ App Controls ที่ใช้ได้ตาม License
-- เห็นผล Pilot และรายการงานที่ต้องดำเนินการเพิ่มเติม
-
 ## Engineering Assurance
 
 - AI App ไม่ควรได้ Effective Access เกินสิทธิ์ที่องค์กรอนุมัติ
@@ -91,5 +91,13 @@ stateDiagram-v2
 
 กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-08)**
+
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
