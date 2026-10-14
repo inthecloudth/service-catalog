@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ประเมินความพร้อมและจัดทำแผนย้าย Windows Server 2016 ไปยัง Windows Server 2022/2025
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - ยังไม่มีข้อมูล Server และ Application Dependencies ที่เชื่อถือได้ก่อนย้ายระบบ
 - ต้องเลือกระหว่าง Upgrade, Side-by-side และ Rebuild โดยยังไม่เห็นความเสี่ยง
@@ -89,11 +89,11 @@ stateDiagram-v2
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียมรายการ Servers/Applications, Application Owners, Known Dependencies และ Target Platform ที่กำลังพิจารณา
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
