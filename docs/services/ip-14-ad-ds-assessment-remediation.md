@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ประเมิน AD DS ด้าน Health, Security, Resilience และ Operational Readiness พร้อมจัดลำดับ Remediation โดยใช้ข้อมูลจาก Domain Controllers และ Dependencies จริง
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - AD DS มีปัญหา Replication, DNS/DC Locator หรือ Authentication เป็นระยะ
 - ไม่ได้ประเมิน Backup/Restore และ Resilience หลังเปลี่ยนแปลง Domain Controllers
@@ -76,11 +76,11 @@ stateDiagram-v2
 
 ไม่รวม Forest/Domain Restructure, Functional Level Upgrade หรือ DC Migration หากไม่ได้กำหนดแยก; การแก้ไขอาจต้องใช้ Maintenance Window
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Forest/Domain/DC Inventory, สิทธิ์ Read-only, Network/DNS Owners และข้อมูล Backup
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
