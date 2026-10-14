@@ -10,6 +10,12 @@
 - Optimization ด้าน Cost, Performance และ Reliability อาจมี Trade-offs
 - ต้องการ Before/After Evidence และ Owner ของ Changes
 
+## Decisions & Outcomes
+
+- แยก Recommendations ที่ควรทำ, ควรรอ และไม่เหมาะกับสภาพแวดล้อมได้
+- มีแผน Remediation ที่จัดลำดับตามผลกระทบและการอนุมัติ
+- ได้หลักฐานผลลัพธ์และรายการที่ยังต้องติดตาม
+
 ## Scope
 
 ครอบคลุม Azure Advisor ทั้ง Reliability, Security, Performance, Cost และ Operational Excellence โดยคัดเลือกและดำเนินการกับ Recommendations ที่ได้รับอนุมัติ
@@ -40,12 +46,6 @@ flowchart LR
 ## Deliverables
 
 Advisor Recommendation Register, Prioritization & Risk Matrix, Remediation Plan, Change Log, Before/After Evidence และ Follow-up Backlog
-
-## Decisions & Outcomes
-
-- แยก Recommendations ที่ควรทำ, ควรรอ และไม่เหมาะกับสภาพแวดล้อมได้
-- มีแผน Remediation ที่จัดลำดับตามผลกระทบและการอนุมัติ
-- ได้หลักฐานผลลัพธ์และรายการที่ยังต้องติดตาม
 
 ## Engineering Assurance
 
@@ -78,9 +78,17 @@ stateDiagram-v2
 
 เตรียม Subscription/Advisor Access, Owners, Service Targets, Baseline Metrics และ Change Windows
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-16)**
+
 ## References
 
 - [Azure Advisor overview](https://learn.microsoft.com/en-us/azure/advisor/advisor-overview)
 
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
