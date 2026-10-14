@@ -1,10 +1,14 @@
 # Microsoft 365 Zero Trust – Secure AI Apps & Data
 
-*Reusable technical service package*
+> **IP-08 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** ประเมินและจำกัดความเสี่ยงจาก AI Apps/Copilot และการเข้าถึงข้อมูลบน Microsoft 365
 
-ประเมินและจำกัดความเสี่ยงจาก AI Apps/Copilot และการเข้าถึงข้อมูลบน Microsoft 365
+## เมื่อใดควรใช้บริการนี้
+
+- มีการใช้ AI/Copilot และ OAuth Apps แต่ยังไม่เห็นเส้นทางเข้าถึงข้อมูลองค์กร
+- กังวล Oversharing, Consent และการนำข้อมูลอ่อนไหวออกนอกขอบเขต
+- ต้องการ Policy Pilot ที่ไม่กระทบการใช้งานเกินจำเป็น
 
 ## Scope
 
@@ -48,12 +52,44 @@ flowchart LR
 
 AI App/Data Risk Assessment, Policy Matrix, Pilot Control Evidence และ Action Plan
 
-## Expected Outcome
+## Decisions & Outcomes
 
-ส่งมอบ Risks, Policy Matrix และหลักฐานทดสอบ Pilot พร้อมรายการข้อจำกัดและ Next Actions
+- ระบุ AI Apps, Permissions และ Data Exposure ที่ต้องจัดการก่อน
+- เชื่อม Risk กับ DLP, Labels และ App Controls ที่ใช้ได้ตาม License
+- เห็นผล Pilot และรายการงานที่ต้องดำเนินการเพิ่มเติม
 
-## Boundary
+## Engineering Assurance
+
+- AI App ไม่ควรได้ Effective Access เกินสิทธิ์ที่องค์กรอนุมัติ
+- การป้องกันต้องเริ่มจาก Data Ownership และ Permissions ต้นทาง ไม่ใช่ AI Layer อย่างเดียว
+
+**Failure & Recovery:** หากพบ Consent หรือ Data Flow เสี่ยง ให้จำกัดการเข้าถึงตามขั้นตอนและตรวจสอบข้อมูลที่ได้รับผลกระทบก่อนเปิดใช้ต่อ
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> Discovered
+  Discovered --> Evaluated: review permissions and data flows
+  Evaluated --> Approved: risk and usage accepted
+  Evaluated --> Restricted: unsafe / unapproved access
+  Approved --> Piloted: scoped policy test
+  Restricted --> Piloted: mitigation and retest
+  Piloted --> Monitored: control validation passes
+  Piloted --> Evaluated: unexpected exposure
+  Monitored --> Evaluated: new app / consent / data drift
+  Monitored --> [*]
+```
+
+## Assumptions & Boundaries
 
 เน้น Assessment และ Selected Controls ไม่รวม Full Tenant Rollout; ฟีเจอร์ขึ้นกับ License
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
+
+## Preparing for an Assessment
+
+กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
