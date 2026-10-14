@@ -10,6 +10,12 @@
 - ต้องการยกระดับ Zero Trust โดยไม่ Lockout ผู้ใช้หรือขัด Business Process
 - ต้องการภาพรวมของ Roadmap มากกว่าการปรับ Secure Score เป็นรายการ ๆ
 
+## Decisions & Outcomes
+
+- ได้ Prioritized Zero Trust Roadmap ที่เชื่อม Policy กับ Business Risks
+- มี Policy Pilot และผลทดสอบ Access / Data Protection ใน Scope
+- เห็นความสัมพันธ์ของ Identity, Endpoint, Application และ Data Controls
+
 ## Scope
 
 ครอบคลุม Identity & Device Access, Entra Conditional Access, Intune Compliance, Defender XDR, Microsoft Purview, SaaS/AI App Governance และ Security Operations ตาม License และ Business Risk ขององค์กร
@@ -44,12 +50,6 @@ flowchart LR
 
 Zero Trust Gap Assessment, Policy Architecture, Pilot Evidence, Security Controls Matrix, Exception Register และ Adoption Roadmap
 
-## Decisions & Outcomes
-
-- ได้ Prioritized Zero Trust Roadmap ที่เชื่อม Policy กับ Business Risks
-- มี Policy Pilot และผลทดสอบ Access / Data Protection ใน Scope
-- เห็นความสัมพันธ์ของ Identity, Endpoint, Application และ Data Controls
-
 ## Engineering Assurance
 
 - ต้องมี Emergency Access และ Staged Rollout ก่อนบังคับใช้ Access Policies
@@ -80,9 +80,17 @@ stateDiagram-v2
 
 เตรียม Identity/Device/Application Inventory, License Matrix, Critical User Journeys และ Security Owners
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-15)**
+
 ## References
 
 - [Zero Trust deployment with Microsoft 365](https://learn.microsoft.com/en-us/security/zero-trust/microsoft-365-zero-trust)
 
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
