@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ตรวจสอบ Service Account และลดความเสี่ยงจากสิทธิ์เกินจำเป็นหรือการตั้งค่าที่ไม่ปลอดภัย
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - ไม่ทราบ Service Account Owner หรือระบบที่พึ่งพาบัญชี
 - Accounts มี Privileges สูงหรือสิทธิ์มากกว่าที่จำเป็น
@@ -91,11 +91,11 @@ stateDiagram-v2
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Service Account Inventory (ถ้ามี), เจ้าของระบบ, สิทธิ์อ่าน Configuration และข้อจำกัดการเปลี่ยน Credentials
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
