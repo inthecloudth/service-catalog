@@ -2,7 +2,7 @@
 
 > **IP-04 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** กำหนดแนวทางบริหารจัดการ Linux ให้เป็นมาตรฐาน พร้อมสร้าง Reference Configuration ที่สามารถนำไปใช้ซ้ำได้
+**Expected Outcome:** กำหนดแนวทางบริหารจัดการ Linux ให้เป็นมาตรฐาน พร้อมสร้าง Reference Configuration ที่สามารถนำไปใช้ซ้ำได้
 
 ## When to Engage
 
