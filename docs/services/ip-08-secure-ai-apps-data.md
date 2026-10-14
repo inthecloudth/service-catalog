@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ประเมินและจำกัดความเสี่ยงจาก AI Apps/Copilot และการเข้าถึงข้อมูลบน Microsoft 365
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - มีการใช้ AI/Copilot และ OAuth Apps แต่ยังไม่เห็นเส้นทางเข้าถึงข้อมูลองค์กร
 - กังวล Oversharing, Consent และการนำข้อมูลอ่อนไหวออกนอกขอบเขต
@@ -87,11 +87,11 @@ stateDiagram-v2
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม AI Apps/OAuth App Inventory, Data Classification, Existing DLP Policies และ Risk Owners
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
