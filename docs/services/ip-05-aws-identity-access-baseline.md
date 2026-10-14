@@ -2,7 +2,7 @@
 
 > **IP-05 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ประเมินและยกระดับมาตรฐาน AWS Identity & Access Governance สำหรับบัญชีที่ตกลง
+**Expected Outcome:** ประเมินและยกระดับมาตรฐาน AWS Identity & Access Governance สำหรับบัญชีที่ตกลง
 
 ## When to Engage
 
