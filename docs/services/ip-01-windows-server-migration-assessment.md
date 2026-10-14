@@ -1,10 +1,14 @@
 # Windows Server 2016 Migration Assessment & Roadmap
 
-*Reusable technical service package*
+> **IP-01 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** ประเมินความพร้อมและจัดทำแผนย้าย Windows Server 2016 ไปยัง Windows Server 2022/2025
 
-ประเมินความพร้อมและจัดทำแผนย้าย Windows Server 2016 ไปยัง Windows Server 2022/2025
+## เมื่อใดควรใช้บริการนี้
+
+- ยังไม่มีข้อมูล Server และ Application Dependencies ที่เชื่อถือได้ก่อนย้ายระบบ
+- ต้องเลือกระหว่าง Upgrade, Side-by-side และ Rebuild โดยยังไม่เห็นความเสี่ยง
+- ต้องวางแผน Migration Waves ให้มีเจ้าของและลำดับความสำคัญ
 
 ## Scope
 
@@ -52,12 +56,42 @@ flowchart LR
 
 Server/Workload Inventory, Dependency & Risk Assessment, Migration Strategy และ Roadmap
 
-## Expected Outcome
+## Decisions & Outcomes
 
-ส่งมอบ Inventory และ Dependency/Risk Assessment พร้อม Migration Roadmap และรายการที่ต้องยืนยันก่อนลงมือย้าย
+- Workloads ใดพร้อมย้าย และ Workloads ใดติดข้อจำกัด
+- ควรใช้ Target Platform และ Migration Approach แบบใด
+- ควรจัดลำดับ Migration Waves อย่างไร
 
-## Boundary
+## Engineering Assurance
+
+- ต้องทราบ Owner, Dependencies และความเสี่ยงก่อนให้สถานะว่าพร้อมย้าย
+- Assessment นี้ไม่รวมการ Cutover ระบบจริง
+
+**Failure & Recovery:** หากข้อมูล Compatibility หรือ Dependency ยังยืนยันไม่ได้ ให้ระบุ Blocker และเจ้าของข้อมูลก่อนกำหนด Wave
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> Unknown
+  Unknown --> Discovered: inventory + owner
+  Discovered --> Mapped: dependencies verified
+  Mapped --> Evaluated: compatibility + risk
+  Evaluated --> Planned: target + waves chosen
+  Evaluated --> Blocked: unsupported / missing evidence
+  Blocked --> Evaluated: resolve uncertainty
+  Planned --> [*]
+```
+
+## Assumptions & Boundaries
 
 อาศัยข้อมูลจากทีม System/Application Owner; ไม่รวมการทดสอบย้ายระบบจริง
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
+
+## Preparing for an Assessment
+
+กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
