@@ -10,6 +10,12 @@
 - กังวลว่า Tool Calls อาจข้าม Authorization หรือเปิดเผยข้อมูลผิด Scope
 - ต้องการตัวอย่าง Integration ที่ตรวจสอบ Security และ Operations ได้
 
+## Decisions & Outcomes
+
+- มี MCP Architecture และ Tool Contracts ที่ชัดเจน
+- ยืนยันสิทธิ์ของ Caller/Tool/Backend ก่อนลงมือเชื่อมต่อจริง
+- ได้รับ MCP Server, Test Evidence และ Deployment Guidance ในขอบเขตที่ตกลง
+
 ## Scope
 
 สร้าง MCP Server, Tools, Authentication/Authorization, Secrets/Logging และ Deployment สำหรับ Use Case ที่ตกลง โดยใช้ Enterprise API หรือ Data Source ที่มีอยู่
@@ -53,12 +59,6 @@ flowchart LR
 
 MCP Server & Selected Tools, Test Evidence, Configuration/Deployment Guide
 
-## Decisions & Outcomes
-
-- มี MCP Architecture และ Tool Contracts ที่ชัดเจน
-- ยืนยันสิทธิ์ของ Caller/Tool/Backend ก่อนลงมือเชื่อมต่อจริง
-- ได้รับ MCP Server, Test Evidence และ Deployment Guidance ในขอบเขตที่ตกลง
-
 ## Engineering Assurance
 
 - ทุก Tool Call ต้องตรวจ Caller, Tool Scope และ Resource Authorization
@@ -97,5 +97,13 @@ stateDiagram-v2
 
 กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-09)**
+
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
