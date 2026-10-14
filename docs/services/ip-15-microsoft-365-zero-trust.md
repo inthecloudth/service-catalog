@@ -2,7 +2,7 @@
 
 > **IP-15 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ประเมินและยกระดับ Zero Trust สำหรับ Microsoft 365 ทั้ง Identity, Device, Apps, Threat Protection, Information Protection และ Governance โดยใช้การปรับใช้แบบเป็นระยะ
+**Expected Outcome:** ประเมินและยกระดับ Zero Trust สำหรับ Microsoft 365 ทั้ง Identity, Device, Apps, Threat Protection, Information Protection และ Governance โดยใช้การปรับใช้แบบเป็นระยะ
 
 ## When to Engage
 
