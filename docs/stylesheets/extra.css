@@ -102,3 +102,12 @@
 .md-footer-meta a:hover {
   color: #2563eb;
 }
+
+/* Brand logo: compact square with gently rounded corners. */
+.md-header__button.md-logo img {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  object-fit: cover;
+  display: block;
+}
