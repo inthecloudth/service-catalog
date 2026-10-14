@@ -1,10 +1,14 @@
 # Linux Platform Management, Standardization & Security
 
-*Reusable technical service package*
+> **IP-04 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** กำหนดแนวทางบริหารจัดการ Linux ให้เป็นมาตรฐาน พร้อมสร้าง Reference Configuration ที่สามารถนำไปใช้ซ้ำได้
 
-กำหนดแนวทางบริหารจัดการ Linux ให้เป็นมาตรฐาน พร้อมสร้าง Reference Configuration ที่สามารถนำไปใช้ซ้ำได้
+## เมื่อใดควรใช้บริการนี้
+
+- มี Linux หลาย Distribution หรือหลายทีมดูแลจน Configuration แตกต่างกัน
+- ยังไม่มีมาตรฐาน Access, Patching, Monitoring และ Backup ที่ใช้ร่วมกัน
+- ต้องการ Reference Build ก่อนขยายไปยัง Fleet
 
 ## Scope
 
@@ -45,12 +49,44 @@ flowchart LR
 
 Linux Standard Baseline, Reference Configuration, Validation Checklist และ Operations Guideline
 
-## Expected Outcome
+## Decisions & Outcomes
 
-Reference Configuration ผ่านการทดสอบตาม Checklist ที่ตกลง และส่งมอบเอกสารสำหรับการนำไปใช้งานซ้ำ
+- ได้ Standard Baseline และ Reference Configuration ที่ตรวจสอบได้
+- เห็น Control Gaps และข้อยกเว้นตาม Role ของ Server
+- ใช้ Reference Build วางแผนการขยายผลได้
 
-## Boundary
+## Engineering Assurance
+
+- ทดสอบการเข้าถึงและบริการหลังปรับ Baseline
+- Reference Configuration ไม่เท่ากับการ Rollout ทั้ง Fleet
+
+**Failure & Recovery:** ถ้าการปรับ Baseline กระทบ Application หรือการบริหารเครื่อง ให้ย้อนกลับการตั้งค่าที่เกี่ยวข้อง แล้วทบทวน Exceptions
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> Unknown
+  Unknown --> Measured: collect current configuration
+  Measured --> Drift: differs from baseline
+  Measured --> Compliant: matches baseline
+  Drift --> Approved: scope + impact reviewed
+  Approved --> Applied: reference configuration
+  Applied --> Compliant: validate controls
+  Applied --> Drift: tests fail / restore
+  Compliant --> Drift: future configuration drift
+  Compliant --> [*]
+```
+
+## Assumptions & Boundaries
 
 ขอบเขตเป็นการสร้างมาตรฐานและ Reference Implementation; ไม่รวมการ Rollout ไปยัง Linux ทุกเครื่องในองค์กร
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
+
+## Preparing for an Assessment
+
+กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
