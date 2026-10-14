@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ออกแบบและวางรากฐาน Azure ให้ Workload Teams นำระบบขึ้นใช้งานได้ภายใต้ Governance, Security, Connectivity และ Operations ที่กำหนดร่วมกัน
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - กำลังเริ่มหรือขยาย Azure แต่ยังไม่มี Governance และ Subscription Standard
 - หลายทีมต้องใช้ Network, Identity, Security และ Monitoring ร่วมกัน
@@ -80,11 +80,11 @@ stateDiagram-v2
 
 ไม่รวมการย้ายทุก Application หรือค่าใช้จ่ายทรัพยากร Azure; จำนวน Subscriptions, Regions, Connectivity และ Shared Services ต้องตกลงก่อนประมาณงาน
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Azure Tenant/Subscription Model, Network/DNS Requirements, Security Policies และทีม Platform Owner
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
