@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ประเมิน Windows Server Configuration เทียบกับ CIS Benchmark รุ่นที่ตกลง แล้วปรับปรุงรายการที่เหมาะสมโดยรักษา Application Compatibility และ Operations Access
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - ต้องการทราบ Windows Server Security Baseline Gaps ที่ตรวจสอบได้
 - มี Domain Controllers, Member Servers หรือ Stand-alone Roles ที่ต้องใช้ Policy ต่างกัน
@@ -74,11 +74,11 @@ stateDiagram-v2
 
 Benchmark Versions และ Profiles เปลี่ยนตาม Release; ไม่รับประกัน 100% Conformance และไม่เผยแพร่หรือคัดลอกข้อความ Benchmark/Build Kits ที่มีข้อจำกัดด้านลิขสิทธิ์หรือ Licensing
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม OS/Role Inventory, Benchmark Version/Profile, GPO Ownership, App Owners และ Recovery Access
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
