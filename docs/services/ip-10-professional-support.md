@@ -2,7 +2,7 @@
 
 > **IP-10 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** บริการให้คำปรึกษาและแก้ไขปัญหาระบบ Infrastructure, Identity, Microsoft 365 และ Cloud ตามที่ร้องขอ
+**Expected Outcome:** บริการให้คำปรึกษาและแก้ไขปัญหาระบบ Infrastructure, Identity, Microsoft 365 และ Cloud ตามที่ร้องขอ
 
 ## When to Engage
 
