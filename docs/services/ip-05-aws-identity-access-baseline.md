@@ -10,6 +10,12 @@
 - ต้องการมาตรฐาน Federation, Permission Sets, SCP และ Break-glass
 - กังวล Guardrails ใหม่กระทบการทำงานของ Workloads
 
+## Decisions & Outcomes
+
+- มี IAM / Federation Architecture ที่สอดคล้องกับการบริหาร AWS Accounts
+- ทราบสิทธิ์และ Guardrails ที่ควรปรับตามความเสี่ยง
+- ยืนยันผล Priority Controls จากการทดสอบจริง
+
 ## Scope
 
 ทบทวน Federation/Identity Center, IAM Role & Permission Set, MFA, SCP, Break-glass และ Access Review พร้อมปรับใช้ Priority Controls ที่อนุมัติ
@@ -47,12 +53,6 @@ flowchart LR
 
 AWS IAM Baseline, Priority Finding List, Applied Control Evidence และ Governance Guide
 
-## Decisions & Outcomes
-
-- มี IAM / Federation Architecture ที่สอดคล้องกับการบริหาร AWS Accounts
-- ทราบสิทธิ์และ Guardrails ที่ควรปรับตามความเสี่ยง
-- ยืนยันผล Priority Controls จากการทดสอบจริง
-
 ## Engineering Assurance
 
 - SCP เป็นขอบเขตจำกัดสิทธิ์ ไม่ใช่กลไกให้สิทธิ์
@@ -85,5 +85,13 @@ stateDiagram-v2
 
 กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-05)**
+
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
