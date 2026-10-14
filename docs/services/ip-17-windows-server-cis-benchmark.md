@@ -1,10 +1,14 @@
 # Windows Server CIS Benchmark — Assessment & Remediation
 
-*Reusable technical service package*
+> **IP-17 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** ประเมิน Windows Server Configuration เทียบกับ CIS Benchmark รุ่นที่ตกลง แล้วปรับปรุงรายการที่เหมาะสมโดยรักษา Application Compatibility และ Operations Access
 
-ประเมิน Windows Server Configuration เทียบกับ CIS Benchmark รุ่นที่ตกลง แล้วปรับปรุงรายการที่เหมาะสมโดยรักษา Application Compatibility และ Operations Access
+## เมื่อใดควรใช้บริการนี้
+
+- ต้องการทราบ Windows Server Security Baseline Gaps ที่ตรวจสอบได้
+- มี Domain Controllers, Member Servers หรือ Stand-alone Roles ที่ต้องใช้ Policy ต่างกัน
+- กังวล Hardening แล้วทำให้ Applications หรือ Management Tools ใช้งานไม่ได้
 
 ## Scope
 
@@ -38,14 +42,45 @@ flowchart LR
 
 Benchmark Scope/Profile Record, Control Assessment Results, Risk & Exception Register, Remediation Record, Reassessment Evidence และ Hardening Roadmap
 
-## Expected Outcome
+## Decisions & Outcomes
 
-เห็น Security Baseline Gap ชัดเจน พร้อมปรับปรุง Controls ที่ผ่านการอนุมัติและตรวจสอบผลกระทบแล้ว
+- ทราบ Applicable CIS Controls และ Findings ตาม Benchmark Version/Profile
+- เลือก Priority Remediation และ Exceptions ตาม Server Role
+- เห็น Compliance Delta พร้อม Functional Test Evidence
 
-## Boundary
+## Engineering Assurance
+
+- ไม่ใช้ Baseline เหมือนกันทั้งหมดโดยไม่ประเมิน Server Roles และ Dependencies
+- ต้องทดสอบ Authentication, Management และ Applications หลัง Hardening
+
+**Failure & Recovery:** หาก Hardening กระทบระบบสำคัญ ให้ย้อนกลับ GPO/Configuration ที่เกี่ยวข้องและทบทวน Applicability ของ Control
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> ProfileSelected
+  ProfileSelected --> Assessed: collect evidence
+  Assessed --> Reviewed: applicability + impact
+  Reviewed --> Approved: exceptions and changes signed off
+  Approved --> Piloted: limited hardening
+  Piloted --> Verified: reassessment + service tests
+  Piloted --> RolledBack: incompatibility
+  RolledBack --> Reviewed: revise scope
+  Verified --> [*]
+```
+
+## Assumptions & Boundaries
 
 Benchmark Versions และ Profiles เปลี่ยนตาม Release; ไม่รับประกัน 100% Conformance และไม่เผยแพร่หรือคัดลอกข้อความ Benchmark/Build Kits ที่มีข้อจำกัดด้านลิขสิทธิ์หรือ Licensing
+
+## ก่อนเริ่มงาน
+
+เตรียม OS/Role Inventory, Benchmark Version/Profile, GPO Ownership, App Owners และ Recovery Access
 
 ## References
 
 - [Official CIS Windows Server Benchmarks](https://www.cisecurity.org/benchmark/microsoft_windows_server)
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
