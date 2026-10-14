@@ -10,6 +10,12 @@
 - Identity Lifecycle และ Source of Authority ไม่ชัดเจน ทำให้ Account Provisioning/Disable มีความเสี่ยง
 - กังวล Failure ของ Sync/Federation/Authentication Path
 
+## Decisions & Outcomes
+
+- เห็น Identity Flow, Authentication Dependencies และ Owners อย่างครบถ้วนใน Scope
+- มีรายการความเสี่ยงที่จัดลำดับและ Remediation ที่ทดสอบแล้ว
+- ตัดสินใจแนวทาง Resilience หรือ Authentication Modernization ได้จาก Evidence
+
 ## Scope
 
 ครอบคลุม Entra Connect Sync / Cloud Sync ตามที่ใช้งาน, Sign-in Method (PHS, PTA, Federation), Sync Scope & Attribute Flow, Identity Lifecycle, SSO, Agent/Server Health, Resilience และ Permissions
@@ -43,12 +49,6 @@ flowchart LR
 
 Hybrid Identity Topology, Identity Flow Matrix, Risk Register, Prioritized Remediation, Pilot Validation และ Handover
 
-## Decisions & Outcomes
-
-- เห็น Identity Flow, Authentication Dependencies และ Owners อย่างครบถ้วนใน Scope
-- มีรายการความเสี่ยงที่จัดลำดับและ Remediation ที่ทดสอบแล้ว
-- ตัดสินใจแนวทาง Resilience หรือ Authentication Modernization ได้จาก Evidence
-
 ## Engineering Assurance
 
 - Source of Authority และ Attribute Ownership ต้องชัดเจน
@@ -79,10 +79,18 @@ stateDiagram-v2
 
 เตรียม Topology ของ AD DS และ Entra, Sync/Authentication Method, App Owners และผู้อนุมัติ Change
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-13)**
+
 ## References
 
 - [Hybrid identity authentication methods](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/choose-ad-authn)
 - [Hybrid authentication resilience](https://learn.microsoft.com/en-us/entra/architecture/resilience-in-hybrid)
 
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
