@@ -1,6 +1,10 @@
 site_name: In the Cloud - Service Catalog
 theme:
   name: material
+  palette:
+    scheme: default
+    primary: white
+    accent: indigo
   features:
     - navigation.sections
     - navigation.top
