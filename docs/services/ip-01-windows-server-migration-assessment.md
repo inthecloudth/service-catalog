@@ -2,7 +2,7 @@
 
 > **IP-01 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ประเมินความพร้อมและจัดทำแผนย้าย Windows Server 2016 ไปยัง Windows Server 2022/2025
+**Expected Outcome:** ประเมินความพร้อมและจัดทำแผนย้าย Windows Server 2016 ไปยัง Windows Server 2022/2025
 
 ## When to Engage
 
