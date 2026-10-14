@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ประเมินและยกระดับ Zero Trust สำหรับ Microsoft 365 ทั้ง Identity, Device, Apps, Threat Protection, Information Protection และ Governance โดยใช้การปรับใช้แบบเป็นระยะ
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - มี Microsoft 365 หลาย Workloads แต่ Control เรื่อง Identity, Device, App และ Data ไม่สอดคล้องกัน
 - ต้องการยกระดับ Zero Trust โดยไม่ Lockout ผู้ใช้หรือขัด Business Process
@@ -76,11 +76,11 @@ stateDiagram-v2
 
 เป็น Umbrella Package: งาน Purview/AI Apps เชิงลึกแยกได้เป็น IP-07 และ IP-08; การปรับใช้นโยบายทุก User/Device ขึ้นกับ Scope, License และ Change Approval
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Identity/Device/Application Inventory, License Matrix, Critical User Journeys และ Security Owners
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
