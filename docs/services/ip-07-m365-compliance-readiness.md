@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ประเมินความพร้อมด้าน Data Governance และ Compliance บน Microsoft 365/Purview
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - ต้องแปลงข้อกำหนดด้านข้อมูลและการเก็บรักษาเป็น Microsoft 365 Controls
 - ไม่มั่นใจว่านโยบาย Information Protection, Retention และ Audit ครอบคลุมหรือไม่
@@ -84,11 +84,11 @@ stateDiagram-v2
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียมข้อกำหนด Compliance/Retention, Data Owners, Purview Licensing และ Policies ที่มีอยู่
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
