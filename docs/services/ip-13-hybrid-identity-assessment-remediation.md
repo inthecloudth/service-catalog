@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ประเมินความถูกต้อง ความปลอดภัย และความต่อเนื่องของ Identity Flow ระหว่าง Active Directory กับ Microsoft Entra ID แล้วแก้ไขความเสี่ยงที่ตกลง
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - ผู้ใช้มีปัญหา Sign-in หรือ Sync ระหว่าง AD DS กับ Microsoft Entra ID
 - Identity Lifecycle และ Source of Authority ไม่ชัดเจน ทำให้ Account Provisioning/Disable มีความเสี่ยง
@@ -75,11 +75,11 @@ stateDiagram-v2
 
 ไม่รวมการย้าย Authentication Method หรือเปลี่ยน Federation ทั้งองค์กรโดยอัตโนมัติ; ต้องผ่าน Dependency Review และ Change Approval
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Topology ของ AD DS และ Entra, Sync/Authentication Method, App Owners และผู้อนุมัติ Change
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
