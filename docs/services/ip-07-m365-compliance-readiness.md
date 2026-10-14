@@ -2,7 +2,7 @@
 
 > **IP-07 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ประเมินความพร้อมด้าน Data Governance และ Compliance บน Microsoft 365/Purview
+**Expected Outcome:** ประเมินความพร้อมด้าน Data Governance และ Compliance บน Microsoft 365/Purview
 
 ## When to Engage
 
