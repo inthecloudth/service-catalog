@@ -2,7 +2,7 @@
 
 > **IP-17 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ประเมิน Windows Server Configuration เทียบกับ CIS Benchmark รุ่นที่ตกลง แล้วปรับปรุงรายการที่เหมาะสมโดยรักษา Application Compatibility และ Operations Access
+**Expected Outcome:** ประเมิน Windows Server Configuration เทียบกับ CIS Benchmark รุ่นที่ตกลง แล้วปรับปรุงรายการที่เหมาะสมโดยรักษา Application Compatibility และ Operations Access
 
 ## When to Engage
 
