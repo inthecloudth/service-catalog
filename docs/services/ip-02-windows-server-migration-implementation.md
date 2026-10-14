@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ดำเนินการย้าย Windows Server 2016 ตาม Migration Waves และแผน Cutover ที่ได้รับอนุมัติ
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - มี Roadmap แล้วแต่ยังต้องการแผน Cutover ที่ควบคุมความเสี่ยง
 - กังวล Downtime, Rollback และบริการที่เชื่อมต่อระบบเดิม
@@ -88,11 +88,11 @@ Effort เป็น TBD ต้องประเมินจำนวน Server,
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Migration Assessment/Roadmap, Target Infrastructure, Backup/Recovery Plan, Cutover Windows และ UAT Owners
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
