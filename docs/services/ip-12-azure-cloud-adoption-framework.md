@@ -2,7 +2,7 @@
 
 > **IP-12 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ใช้ Microsoft Cloud Adoption Framework (CAF) ทั้ง 7 Methodologies เพื่อเชื่อม Business Outcomes กับการวางแผน Cloud, Platform Foundation, Workload Adoption และการดำเนินงานระยะยาว
+**Expected Outcome:** ใช้ Microsoft Cloud Adoption Framework (CAF) ทั้ง 7 Methodologies เพื่อเชื่อม Business Outcomes กับการวางแผน Cloud, Platform Foundation, Workload Adoption และการดำเนินงานระยะยาว
 
 ## When to Engage
 
