@@ -1,10 +1,14 @@
 # Active Directory Domain Services Assessment & Remediation
 
-*Reusable technical service package*
+> **IP-14 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** ประเมิน AD DS ด้าน Health, Security, Resilience และ Operational Readiness พร้อมจัดลำดับ Remediation โดยใช้ข้อมูลจาก Domain Controllers และ Dependencies จริง
 
-ประเมิน AD DS ด้าน Health, Security, Resilience และ Operational Readiness พร้อมจัดลำดับ Remediation โดยใช้ข้อมูลจาก Domain Controllers และ Dependencies จริง
+## เมื่อใดควรใช้บริการนี้
+
+- AD DS มีปัญหา Replication, DNS/DC Locator หรือ Authentication เป็นระยะ
+- ไม่ได้ประเมิน Backup/Restore และ Resilience หลังเปลี่ยนแปลง Domain Controllers
+- มี Legacy Settings หรือ Privileged Access ที่ต้องจัดลำดับแก้ไข
 
 ## Scope
 
@@ -40,15 +44,46 @@ flowchart LR
 
 AD DS Topology & Health Assessment, Risk Register, Remediation Plan, Change Evidence และ Post-change Validation
 
-## Expected Outcome
+## Decisions & Outcomes
 
-ลดความเสี่ยงของ Directory Service Failure และเพิ่มความน่าเชื่อถือของ Authentication / Replication
+- ทราบ Domain/Forest Health และ Root Causes ที่มีหลักฐาน
+- เห็น Risk Register และ Remediation Priorities แยกจากสิ่งที่ต้องเปลี่ยนอย่างเร่งด่วน
+- ตรวจสอบผล DNS, Replication และ Authentication หลังแก้ไขได้
 
-## Boundary
+## Engineering Assurance
+
+- รักษา Directory Availability ระหว่างการแก้ไข Security และ Configuration
+- ตรวจสอบ DNS/Network/Time และ Replication ก่อนสรุปว่าเป็นปัญหาที่ Application
+
+**Failure & Recovery:** หาก Replication หรือ Authentication ผิดปกติหลังการเปลี่ยนแปลง ให้หยุดการเปลี่ยนต่อและแก้ไขด้วยขั้นตอน Recovery ที่รองรับ
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> TopologyKnown
+  TopologyKnown --> HealthMeasured: gather evidence
+  HealthMeasured --> RiskClassified: prioritize findings
+  RiskClassified --> Approved: authorize scoped fix
+  Approved --> Changed: apply and monitor
+  Changed --> Healthy: replication + auth verified
+  Changed --> Incident: regression detected
+  Incident --> RiskClassified: recover and reassess
+  Healthy --> [*]
+```
+
+## Assumptions & Boundaries
 
 ไม่รวม Forest/Domain Restructure, Functional Level Upgrade หรือ DC Migration หากไม่ได้กำหนดแยก; การแก้ไขอาจต้องใช้ Maintenance Window
+
+## ก่อนเริ่มงาน
+
+เตรียม Forest/Domain/DC Inventory, สิทธิ์ Read-only, Network/DNS Owners และข้อมูล Backup
 
 ## References
 
 - [AD DS troubleshooting](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/ad-ds-troubleshooting)
 - [DCDIAG command](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/dcdiag)
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
