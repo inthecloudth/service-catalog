@@ -10,6 +10,12 @@
 - ไม่มั่นใจว่านโยบาย Information Protection, Retention และ Audit ครอบคลุมหรือไม่
 - ต้องการหลักฐาน Gap Analysis ก่อนปรับ Policy จริง
 
+## Decisions & Outcomes
+
+- เห็นความเชื่อมโยง Requirement → Control → Evidence
+- เลือก Priority Policies และ Pilot ตามข้อมูลกับ License ที่มี
+- ได้ Roadmap ของ Compliance Gaps ที่ยังไม่ปิด
+
 ## Scope
 
 Review Information Protection, Retention, Audit, Records และ eDiscovery เทียบกับข้อกำหนดที่ลูกค้าระบุ พร้อมแก้ไข Controls ลำดับสำคัญเฉพาะขอบเขตที่อนุมัติ
@@ -50,12 +56,6 @@ flowchart LR
 
 Compliance Gap Matrix, Control Evidence, Pilot Configuration และ Remediation Roadmap
 
-## Decisions & Outcomes
-
-- เห็นความเชื่อมโยง Requirement → Control → Evidence
-- เลือก Priority Policies และ Pilot ตามข้อมูลกับ License ที่มี
-- ได้ Roadmap ของ Compliance Gaps ที่ยังไม่ปิด
-
 ## Engineering Assurance
 
 - ทุก Policy ต้องมีเจ้าของข้อกำหนดและเหตุผลอ้างอิง
@@ -88,5 +88,13 @@ stateDiagram-v2
 
 กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-07)**
+
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
