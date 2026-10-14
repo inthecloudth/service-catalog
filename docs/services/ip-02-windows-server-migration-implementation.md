@@ -10,6 +10,12 @@
 - กังวล Downtime, Rollback และบริการที่เชื่อมต่อระบบเดิม
 - ต้องการหลักฐาน UAT ก่อนปลดระวาง Server
 
+## Decisions & Outcomes
+
+- รับรองแต่ละ Migration Wave บนเกณฑ์ทดสอบที่ตกลง
+- เห็น Cutover, Rollback และสถานะงานคงค้างอย่างชัดเจน
+- ตัดสินใจ Decommission จากผลทดสอบที่ตรวจสอบได้
+
 ## Scope
 
 Pilot Migration, การย้ายระบบตาม Wave, Configuration/Functional Validation, Cutover, Remediation และการเลิกใช้ Server เดิมที่ตกลงร่วมกัน
@@ -52,12 +58,6 @@ flowchart LR
 
 Migration Runbook, ผลทดสอบ/ผล Cutover และรายการ Server ที่ย้ายเสร็จ
 
-## Decisions & Outcomes
-
-- รับรองแต่ละ Migration Wave บนเกณฑ์ทดสอบที่ตกลง
-- เห็น Cutover, Rollback และสถานะงานคงค้างอย่างชัดเจน
-- ตัดสินใจ Decommission จากผลทดสอบที่ตรวจสอบได้
-
 ## Engineering Assurance
 
 - ต้องมี Recovery Plan ที่ทดสอบหรือทบทวนก่อนเปลี่ยน Production Traffic
@@ -92,5 +92,13 @@ Effort เป็น TBD ต้องประเมินจำนวน Server,
 
 กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-02)**
+
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
