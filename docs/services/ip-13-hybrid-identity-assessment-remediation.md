@@ -1,10 +1,14 @@
 # Hybrid Identity Assessment & Remediation
 
-*Reusable technical service package*
+> **IP-13 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** ประเมินความถูกต้อง ความปลอดภัย และความต่อเนื่องของ Identity Flow ระหว่าง Active Directory กับ Microsoft Entra ID แล้วแก้ไขความเสี่ยงที่ตกลง
 
-ประเมินความถูกต้อง ความปลอดภัย และความต่อเนื่องของ Identity Flow ระหว่าง Active Directory กับ Microsoft Entra ID แล้วแก้ไขความเสี่ยงที่ตกลง
+## เมื่อใดควรใช้บริการนี้
+
+- ผู้ใช้มีปัญหา Sign-in หรือ Sync ระหว่าง AD DS กับ Microsoft Entra ID
+- Identity Lifecycle และ Source of Authority ไม่ชัดเจน ทำให้ Account Provisioning/Disable มีความเสี่ยง
+- กังวล Failure ของ Sync/Federation/Authentication Path
 
 ## Scope
 
@@ -39,15 +43,46 @@ flowchart LR
 
 Hybrid Identity Topology, Identity Flow Matrix, Risk Register, Prioritized Remediation, Pilot Validation และ Handover
 
-## Expected Outcome
+## Decisions & Outcomes
 
-ทราบว่าบัญชีถูกสร้าง ซิงก์ ตรวจสอบสิทธิ์ และยกเลิกสิทธิ์อย่างไร พร้อมลด Failure Modes ที่ตรวจพบ
+- เห็น Identity Flow, Authentication Dependencies และ Owners อย่างครบถ้วนใน Scope
+- มีรายการความเสี่ยงที่จัดลำดับและ Remediation ที่ทดสอบแล้ว
+- ตัดสินใจแนวทาง Resilience หรือ Authentication Modernization ได้จาก Evidence
 
-## Boundary
+## Engineering Assurance
+
+- Source of Authority และ Attribute Ownership ต้องชัดเจน
+- การแก้ Sync/Authentication ต้องมี Rollback และทดสอบ Emergency Access
+
+**Failure & Recovery:** หากการปรับ Attribute Flow หรือ Sync Scope กระทบ User Sign-in ให้หยุดการขยายผลและกู้คืน Configuration ตามแผนที่อนุมัติ
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> Discovered
+  Discovered --> Mapped: source and sync flows known
+  Mapped --> RiskAssessed: auth + lifecycle dependencies
+  RiskAssessed --> Approved: remediation approved
+  Approved --> Piloted: scoped change
+  Piloted --> Verified: sync + sign-in tests pass
+  Piloted --> Reverted: unexpected identity impact
+  Reverted --> RiskAssessed: review mapping
+  Verified --> [*]
+```
+
+## Assumptions & Boundaries
 
 ไม่รวมการย้าย Authentication Method หรือเปลี่ยน Federation ทั้งองค์กรโดยอัตโนมัติ; ต้องผ่าน Dependency Review และ Change Approval
+
+## ก่อนเริ่มงาน
+
+เตรียม Topology ของ AD DS และ Entra, Sync/Authentication Method, App Owners และผู้อนุมัติ Change
 
 ## References
 
 - [Hybrid identity authentication methods](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/choose-ad-authn)
 - [Hybrid authentication resilience](https://learn.microsoft.com/en-us/entra/architecture/resilience-in-hybrid)
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
