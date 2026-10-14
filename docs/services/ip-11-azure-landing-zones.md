@@ -10,6 +10,12 @@
 - หลายทีมต้องใช้ Network, Identity, Security และ Monitoring ร่วมกัน
 - ต้องการ Foundation ที่สร้างซ้ำและรองรับ Workload Onboarding ได้
 
+## Decisions & Outcomes
+
+- กำหนด Platform vs Application Landing Zone Ownership ชัดเจน
+- มี Policy, RBAC, Connectivity และ IaC Foundation ตาม Scope
+- รู้กระบวนการ Onboard Workloads โดยไม่ข้าม Guardrails
+
 ## Scope
 
 ครอบคลุม Platform Landing Zone, Management Group / Subscription Topology, Identity & RBAC, Azure Policy, Connectivity, Logging/Monitoring, Security Baseline, IaC และ Application Landing Zone Pattern ตามขอบเขตที่ตกลง
@@ -48,12 +54,6 @@ flowchart LR
 
 Landing Zone Architecture & Decision Record, Platform IaC/Configuration, Policy & RBAC Matrix, Validation Evidence และ Operational Handover
 
-## Decisions & Outcomes
-
-- กำหนด Platform vs Application Landing Zone Ownership ชัดเจน
-- มี Policy, RBAC, Connectivity และ IaC Foundation ตาม Scope
-- รู้กระบวนการ Onboard Workloads โดยไม่ข้าม Guardrails
-
 ## Engineering Assurance
 
 - กำหนด Platform Controls ก่อนอนุญาตให้ Workload Teams ขยายการใช้งาน
@@ -84,10 +84,18 @@ stateDiagram-v2
 
 เตรียม Azure Tenant/Subscription Model, Network/DNS Requirements, Security Policies และทีม Platform Owner
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-11)**
+
 ## References
 
 - [Azure landing zone design areas](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-areas)
 - [Azure landing zone concepts](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
 
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
