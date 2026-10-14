@@ -1,10 +1,14 @@
 # Windows Server 2016 Migration Implementation
 
-*Reusable technical service package*
+> **IP-02 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** ดำเนินการย้าย Windows Server 2016 ตาม Migration Waves และแผน Cutover ที่ได้รับอนุมัติ
 
-ดำเนินการย้าย Windows Server 2016 ตาม Migration Waves และแผน Cutover ที่ได้รับอนุมัติ
+## เมื่อใดควรใช้บริการนี้
+
+- มี Roadmap แล้วแต่ยังต้องการแผน Cutover ที่ควบคุมความเสี่ยง
+- กังวล Downtime, Rollback และบริการที่เชื่อมต่อระบบเดิม
+- ต้องการหลักฐาน UAT ก่อนปลดระวาง Server
 
 ## Scope
 
@@ -48,12 +52,45 @@ flowchart LR
 
 Migration Runbook, ผลทดสอบ/ผล Cutover และรายการ Server ที่ย้ายเสร็จ
 
-## Expected Outcome
+## Decisions & Outcomes
 
-Workloads ใน Wave ผ่านเกณฑ์ทดสอบที่ตกลง, มีหลักฐาน Cutover และเอกสาร Rollback/Decommission ตามสถานะจริง
+- รับรองแต่ละ Migration Wave บนเกณฑ์ทดสอบที่ตกลง
+- เห็น Cutover, Rollback และสถานะงานคงค้างอย่างชัดเจน
+- ตัดสินใจ Decommission จากผลทดสอบที่ตรวจสอบได้
 
-## Boundary
+## Engineering Assurance
+
+- ต้องมี Recovery Plan ที่ทดสอบหรือทบทวนก่อนเปลี่ยน Production Traffic
+- ห้ามเลิกใช้ Source ก่อน Target ผ่าน Acceptance Tests
+
+**Failure & Recovery:** หาก Service Validation ไม่ผ่าน ให้หยุดการเปลี่ยนผ่านและใช้แนวทาง Recovery ที่ตกลง ก่อนแก้ปัญหาและทดสอบซ้ำ
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> Planned
+  Planned --> Protected: backup / rollback ready
+  Protected --> Migrated: pilot or wave migration
+  Migrated --> Validated: functional + dependency tests
+  Validated --> Cutover: owner / change approval
+  Cutover --> Stable: monitoring + hypercare pass
+  Stable --> Decommissioned: retire old after approval
+  Migrated --> Recovery: validation fails
+  Cutover --> Recovery: service acceptance fails
+  Recovery --> Protected: restore service / revise plan
+  Decommissioned --> [*]
+```
+
+## Assumptions & Boundaries
 
 Effort เป็น TBD ต้องประเมินจำนวน Server, Application, Dependency, Downtime และ Cutover Window ก่อน
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
+
+## Preparing for an Assessment
+
+กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
