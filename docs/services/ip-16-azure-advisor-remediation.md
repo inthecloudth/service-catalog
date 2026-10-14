@@ -2,7 +2,7 @@
 
 > **IP-16 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** เปลี่ยน Recommendations ของ Azure Advisor ให้เป็นรายการปรับปรุงที่จัดลำดับตาม Business Risk, Impact, Effort และ Change Windows พร้อมหลักฐาน Before/After
+**Expected Outcome:** เปลี่ยน Recommendations ของ Azure Advisor ให้เป็นรายการปรับปรุงที่จัดลำดับตาม Business Risk, Impact, Effort และ Change Windows พร้อมหลักฐาน Before/After
 
 ## When to Engage
 
