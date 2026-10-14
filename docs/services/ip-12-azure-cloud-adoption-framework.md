@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ใช้ Microsoft Cloud Adoption Framework (CAF) ทั้ง 7 Methodologies เพื่อเชื่อม Business Outcomes กับการวางแผน Cloud, Platform Foundation, Workload Adoption และการดำเนินงานระยะยาว
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - ต้องการขับเคลื่อน Cloud Adoption แต่มีเพียงแผนย้ายเครื่องโดยยังขาด Business Outcomes
 - แต่ละฝ่ายมี Cloud Decisions ที่ไม่สอดคล้องกันทั้ง Security, Finance และ Operations
@@ -81,11 +81,11 @@ stateDiagram-v2
 
 เป็น Program แบบ Iterative / Multi-workstream; คำว่า End-to-End หมายถึงครอบคลุมทั้ง 7 Methodologies ไม่ใช่รับประกันย้ายทุก Workload ในโครงการเดียว ระยะเวลาและ Implementation Scope ประเมินตาม Portfolio
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Business Outcomes, Application Portfolio, Decision Makers, Platform Owners และ Operating Model ปัจจุบัน
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
