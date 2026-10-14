@@ -2,7 +2,7 @@
 
 > **IP-14 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ประเมิน AD DS ด้าน Health, Security, Resilience และ Operational Readiness พร้อมจัดลำดับ Remediation โดยใช้ข้อมูลจาก Domain Controllers และ Dependencies จริง
+**Expected Outcome:** ประเมิน AD DS ด้าน Health, Security, Resilience และ Operational Readiness พร้อมจัดลำดับ Remediation โดยใช้ข้อมูลจาก Domain Controllers และ Dependencies จริง
 
 ## When to Engage
 
