@@ -10,6 +10,12 @@
 - ไม่ได้ประเมิน Backup/Restore และ Resilience หลังเปลี่ยนแปลง Domain Controllers
 - มี Legacy Settings หรือ Privileged Access ที่ต้องจัดลำดับแก้ไข
 
+## Decisions & Outcomes
+
+- ทราบ Domain/Forest Health และ Root Causes ที่มีหลักฐาน
+- เห็น Risk Register และ Remediation Priorities แยกจากสิ่งที่ต้องเปลี่ยนอย่างเร่งด่วน
+- ตรวจสอบผล DNS, Replication และ Authentication หลังแก้ไขได้
+
 ## Scope
 
 ครอบคลุม Forest/Domain, Domain Controllers, Replication, DNS, SYSVOL, Sites & Services, Time/Kerberos, FSMO, Privilege Delegation, Legacy Protocol Exposure, Backup/Recovery และ Monitoring ตามขอบเขตที่อนุมัติ
@@ -44,12 +50,6 @@ flowchart LR
 
 AD DS Topology & Health Assessment, Risk Register, Remediation Plan, Change Evidence และ Post-change Validation
 
-## Decisions & Outcomes
-
-- ทราบ Domain/Forest Health และ Root Causes ที่มีหลักฐาน
-- เห็น Risk Register และ Remediation Priorities แยกจากสิ่งที่ต้องเปลี่ยนอย่างเร่งด่วน
-- ตรวจสอบผล DNS, Replication และ Authentication หลังแก้ไขได้
-
 ## Engineering Assurance
 
 - รักษา Directory Availability ระหว่างการแก้ไข Security และ Configuration
@@ -80,10 +80,18 @@ stateDiagram-v2
 
 เตรียม Forest/Domain/DC Inventory, สิทธิ์ Read-only, Network/DNS Owners และข้อมูล Backup
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-14)**
+
 ## References
 
 - [AD DS troubleshooting](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/ad-ds-troubleshooting)
 - [DCDIAG command](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/dcdiag)
 
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
