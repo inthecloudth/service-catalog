@@ -1,10 +1,14 @@
 # Microsoft 365 Zero Trust – Regulatory & Compliance Readiness
 
-*Reusable technical service package*
+> **IP-07 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** ประเมินความพร้อมด้าน Data Governance และ Compliance บน Microsoft 365/Purview
 
-ประเมินความพร้อมด้าน Data Governance และ Compliance บน Microsoft 365/Purview
+## เมื่อใดควรใช้บริการนี้
+
+- ต้องแปลงข้อกำหนดด้านข้อมูลและการเก็บรักษาเป็น Microsoft 365 Controls
+- ไม่มั่นใจว่านโยบาย Information Protection, Retention และ Audit ครอบคลุมหรือไม่
+- ต้องการหลักฐาน Gap Analysis ก่อนปรับ Policy จริง
 
 ## Scope
 
@@ -46,12 +50,43 @@ flowchart LR
 
 Compliance Gap Matrix, Control Evidence, Pilot Configuration และ Remediation Roadmap
 
-## Expected Outcome
+## Decisions & Outcomes
 
-ส่งมอบ Gap Matrix, ผลการทดสอบ Policy Pilot และ Roadmap สำหรับปรับปรุง Controls
+- เห็นความเชื่อมโยง Requirement → Control → Evidence
+- เลือก Priority Policies และ Pilot ตามข้อมูลกับ License ที่มี
+- ได้ Roadmap ของ Compliance Gaps ที่ยังไม่ปิด
 
-## Boundary
+## Engineering Assurance
+
+- ทุก Policy ต้องมีเจ้าของข้อกำหนดและเหตุผลอ้างอิง
+- การตั้งค่า Purview ไม่ใช่การรับรองผ่านข้อกฎหมายโดยอัตโนมัติ
+
+**Failure & Recovery:** หากนโยบาย Retention หรือ Disposition ทำให้เกิดผลที่ไม่คาดหมาย ให้ระงับการขยายผลและให้ Data/Compliance Owner ทบทวนก่อนปรับใช้ต่อ
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> RequirementsKnown
+  RequirementsKnown --> InventoryMapped: identify content and owners
+  InventoryMapped --> PolicyDesigned: retention / labels mapped
+  PolicyDesigned --> PilotApproved: compliance owner sign-off
+  PilotApproved --> Tested: pilot + impact validation
+  Tested --> Accepted: requirements met in pilot scope
+  Tested --> Revised: unexpected disposition / gap
+  Revised --> PolicyDesigned: adjust controls
+  Accepted --> [*]
+```
+
+## Assumptions & Boundaries
 
 ไม่รวม Legal Opinion/การรับรองผ่านข้อกำหนดทางกฎหมาย; การใช้ Feature ขึ้นกับ License
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
+
+## Preparing for an Assessment
+
+กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
