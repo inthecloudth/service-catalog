@@ -10,6 +10,12 @@
 - ยังไม่แน่ใจว่า Controls ใดใช้ได้ตาม License, Service และ Business Processes
 - ต้องการลด Policy Gaps โดยไม่สร้าง Tenant-wide Access Issues
 
+## Decisions & Outcomes
+
+- มี Versioned Assessment และ Control Applicability Matrix
+- เลือก Priority Remediation/Exceptions พร้อม Owner ที่เกี่ยวข้อง
+- ตรวจสอบ Configuration Delta และการใช้งานจริงหลังปรับนโยบาย
+
 ## Scope
 
 ครอบคลุม Entra Identity Controls, Exchange Online, SharePoint/OneDrive, Teams, Defender/Purview และ Audit/Administration เฉพาะที่มีอยู่ใน Benchmark Version และ License ของ Tenant
@@ -42,12 +48,6 @@ flowchart LR
 
 Versioned CIS Control Matrix, Tenant Assessment, Findings & Exceptions, Remediation Evidence, Compliance Delta และ Recommended Roadmap
 
-## Decisions & Outcomes
-
-- มี Versioned Assessment และ Control Applicability Matrix
-- เลือก Priority Remediation/Exceptions พร้อม Owner ที่เกี่ยวข้อง
-- ตรวจสอบ Configuration Delta และการใช้งานจริงหลังปรับนโยบาย
-
 ## Engineering Assurance
 
 - การผ่าน Checklist ไม่เท่ากับ Security Assurance ทั้งหมด
@@ -78,9 +78,17 @@ CIS Conformance ไม่เท่ากับ Security Assurance หรือ C
 
 เตรียม Tenant License Inventory, Benchmark Version/Profile, Test Users และผู้รับผิดชอบแต่ละ Workload
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-18)**
+
 ## References
 
 - [Official CIS Microsoft 365 Benchmark](https://www.cisecurity.org/benchmark/microsoft_365)
 
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
