@@ -10,6 +10,12 @@
 - Accounts มี Privileges สูงหรือสิทธิ์มากกว่าที่จำเป็น
 - การเปลี่ยน Credential อาจทำให้ Business Services หยุดทำงาน
 
+## Decisions & Outcomes
+
+- ได้ Inventory, Owner, Usage และ Dependencies ของ Accounts ใน Scope
+- เลือก Remediation หรือ gMSA Pilot ตามระดับความเสี่ยง
+- ตรวจสอบว่า Services ยังทำงานหลังปรับสิทธิ์
+
 ## Scope
 
 ครอบคลุม AD DS/Windows Service Accounts และข้อมูลจากเครื่องมือ Identity Security (หากมี) ตามระบบที่ตกลง พร้อม Remediation เฉพาะรายการที่ได้รับอนุมัติ
@@ -55,12 +61,6 @@ flowchart LR
 
 Service Account Inventory, Risk Register, Remediation Checklist และ Validation Results
 
-## Decisions & Outcomes
-
-- ได้ Inventory, Owner, Usage และ Dependencies ของ Accounts ใน Scope
-- เลือก Remediation หรือ gMSA Pilot ตามระดับความเสี่ยง
-- ตรวจสอบว่า Services ยังทำงานหลังปรับสิทธิ์
-
 ## Engineering Assurance
 
 - ระบุ Account Owner และ Consumers ก่อนแก้ Credentials หรือ Permissions
@@ -95,5 +95,13 @@ stateDiagram-v2
 
 กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-03)**
+
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
