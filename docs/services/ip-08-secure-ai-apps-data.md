@@ -87,9 +87,9 @@ stateDiagram-v2
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
 
-## Preparing for an Assessment
+## ก่อนเริ่มงาน
 
-กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
+เตรียม AI Apps/OAuth App Inventory, Data Classification, Existing DLP Policies และ Risk Owners
 
 ## พูดคุยขอบเขตงาน
 
