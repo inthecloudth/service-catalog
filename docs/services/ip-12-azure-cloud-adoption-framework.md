@@ -10,6 +10,12 @@
 - แต่ละฝ่ายมี Cloud Decisions ที่ไม่สอดคล้องกันทั้ง Security, Finance และ Operations
 - ต้องจัด Priorities และ Operating Model ให้รองรับการเติบโตหลายระยะ
 
+## Decisions & Outcomes
+
+- ได้ Roadmap ครบ Strategy, Plan, Ready, Adopt, Govern, Secure และ Manage
+- ทราบ Decision Owners, Dependencies และ Readiness Gates
+- วัด Adoption ด้วย Business & Operational Outcomes ไม่ใช่จำนวน VM ที่ย้าย
+
 ## Scope
 
 ครอบคลุม Strategy, Plan, Ready, Adopt, Govern, Secure และ Manage; กำหนด Operating Model, Ownership, Workload Portfolio, Wave Plan, Landing Zone, Migration/Modernization Path, Governance, Security และ Day-2 Operations
@@ -49,12 +55,6 @@ flowchart LR
 
 Cloud Adoption Strategy, Portfolio & Wave Plan, Operating Model/RACI, Landing Zone Readiness, Governance & Security Framework, Day-2 Operations Model และ Multi-wave Roadmap
 
-## Decisions & Outcomes
-
-- ได้ Roadmap ครบ Strategy, Plan, Ready, Adopt, Govern, Secure และ Manage
-- ทราบ Decision Owners, Dependencies และ Readiness Gates
-- วัด Adoption ด้วย Business & Operational Outcomes ไม่ใช่จำนวน VM ที่ย้าย
-
 ## Engineering Assurance
 
 - Govern, Secure และ Manage ต้องดำเนินควบคู่กับ Adoption Waves
@@ -85,9 +85,17 @@ stateDiagram-v2
 
 เตรียม Business Outcomes, Application Portfolio, Decision Makers, Platform Owners และ Operating Model ปัจจุบัน
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-12)**
+
 ## References
 
 - [Cloud Adoption Framework overview](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/overview)
 
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
