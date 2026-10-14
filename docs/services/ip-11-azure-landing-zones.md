@@ -2,7 +2,7 @@
 
 > **IP-11 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ออกแบบและวางรากฐาน Azure ให้ Workload Teams นำระบบขึ้นใช้งานได้ภายใต้ Governance, Security, Connectivity และ Operations ที่กำหนดร่วมกัน
+**Expected Outcome:** ออกแบบและวางรากฐาน Azure ให้ Workload Teams นำระบบขึ้นใช้งานได้ภายใต้ Governance, Security, Connectivity และ Operations ที่กำหนดร่วมกัน
 
 ## When to Engage
 
