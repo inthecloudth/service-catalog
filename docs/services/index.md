@@ -1,8 +1,30 @@
-# Service Packages
+# Service Catalog
 
-**Architecture-first, repeatable technical services** for Cloud, Infrastructure, Identity, Security and AI.
+**Cloud, Infrastructure, Identity, Security และ AI — ออกแบบและส่งมอบโดยเริ่มจากปัญหาจริงของระบบ**
 
-Each package includes Overview, Scope, Architecture Mental Model, Standard Delivery, Deliverables, Expected Outcome and Boundary. Customer details, commercial pricing and detailed internal playbooks are intentionally omitted.
+เอกสารนี้ช่วยให้ IT Managers, Architects และผู้รับผิดชอบโครงการประเมินได้ว่า บริการใดเหมาะกับความเสี่ยงหรือแผนงานขององค์กร ก่อนลงรายละเอียดใน Statement of Work
+
+## เริ่มจากสิ่งที่องค์กรต้องการแก้
+
+| คำถามที่กำลังเจอ | บริการที่เกี่ยวข้อง |
+|---|---|
+| ต้องย้าย Windows Server แต่ยังไม่รู้ Dependencies และความเสี่ยง | [Migration Assessment](ip-01-windows-server-migration-assessment.md) · [Migration Implementation](ip-02-windows-server-migration-implementation.md) |
+| ต้องวางรากฐาน Azure หรือขยาย Cloud อย่างมี Governance | [Azure Landing Zones](ip-11-azure-landing-zones.md) · [Cloud Adoption Framework](ip-12-azure-cloud-adoption-framework.md) |
+| Identity มีความเสี่ยงจากสิทธิ์และการเชื่อมต่อหลายระบบ | [Service Account Security](ip-03-service-account-security.md) · [Hybrid Identity](ip-13-hybrid-identity-assessment-remediation.md) · [AD DS Assessment](ip-14-ad-ds-assessment-remediation.md) |
+| Microsoft 365 มี Security/Compliance Gaps ที่ยังจัดลำดับไม่ได้ | [Security Baseline](ip-06-m365-security-baseline.md) · [Zero Trust](ip-15-microsoft-365-zero-trust.md) · [Compliance Readiness](ip-07-m365-compliance-readiness.md) |
+| ต้องประเมิน Hardening และข้อยกเว้นที่กระทบการทำงาน | [Windows Server CIS](ip-17-windows-server-cis-benchmark.md) · [Microsoft 365 CIS](ip-18-m365-cis-benchmark.md) |
+| ต้องใช้ AI เชื่อม Enterprise Systems พร้อมควบคุมการเข้าถึง | [Enterprise MCP Server](ip-09-enterprise-mcp-server.md) · [Secure AI Apps & Data](ip-08-secure-ai-apps-data.md) |
+| ต้องจัดลำดับ Azure Recommendations หรือขอ Engineering Support | [Azure Advisor Remediation](ip-16-azure-advisor-remediation.md) · [Professional Support](ip-10-professional-support.md) |
+
+## แต่ละ Service Package อธิบายอะไร
+
+- **When to engage** — สถานการณ์หรือปัญหาที่บริการเหมาะจะเข้าไปช่วย
+- **Decisions & Outcomes** — ข้อมูลและผลลัพธ์ที่ใช้ตัดสินใจต่อ
+- **Architecture Mental Model** — องค์ประกอบและ Control Boundaries ของระบบ
+- **Standard Delivery** — ขั้นตอนงานและ Deliverables ในระดับที่กำหนด Scope ได้
+- **Engineering Assurance** — เงื่อนไขความปลอดภัย, State Transitions, Failure/Recovery และข้อจำกัด
+
+## ดูบริการทั้งหมด 18 IP
 
 ## Azure & Cloud Adoption
 
@@ -37,8 +59,12 @@ Each package includes Overview, Scope, Architecture Mental Model, Standard Deliv
 - **IP-09** — [Enterprise MCP Server](ip-09-enterprise-mcp-server.md)
 - **IP-10** — [Professional Support](ip-10-professional-support.md)
 
-## Documentation principles
+## เริ่มพูดคุยเรื่อง Scope
 
-- Architecture Mental Models explain component interactions and trust boundaries, not a customer's deployed topology.
-- Standard Delivery activities are reference phases. Project sizing and acceptance are agreed per engagement.
-- Microsoft and CIS references remain with their respective publishers; no restricted benchmark content is reproduced.
+ก่อนกำหนดขอบเขตจริง ทีมจะร่วมกันยืนยันเป้าหมาย จำนวน Workloads/Accounts หรือ Tenants ข้อจำกัดด้าน Compatibility และสิ่งที่จะใช้เป็น Acceptance Criteria
+
+**[ติดต่อ In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20Catalog%20Enquiry)**
+
+---
+
+*Architecture Diagrams เป็น Conceptual Models ไม่ใช่ข้อมูลระบบจริงของลูกค้า และเอกสารนี้ไม่ใช่ข้อเสนอผูกพันเรื่องผลลัพธ์หรือระยะเวลาดำเนินการ*
