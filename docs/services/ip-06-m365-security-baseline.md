@@ -10,6 +10,12 @@
 - Secure Score มีข้อเสนอมาก แต่ยังไม่ทราบว่าอะไรลดความเสี่ยงจริง
 - ต้องการทำ Remediation โดยไม่สร้างผลกระทบต่อผู้ใช้
 
+## Decisions & Outcomes
+
+- เห็น Tenant Security Gaps ที่มีลำดับความสำคัญและ Owner
+- ได้ผลการแก้ Priority Controls พร้อม Evidence
+- เห็น Roadmap และ Exceptions ที่ต้องดำเนินการต่อ
+
 ## Scope
 
 ครอบคลุมการตั้งค่า Entra, Exchange Online, SharePoint/Teams และ Defender ตามสิทธิ์ใช้งานที่มี พร้อม Remediation ที่อนุมัติและ Exception Register
@@ -51,12 +57,6 @@ flowchart LR
 
 Security Gap Assessment, Remediation Record, Secure Score Snapshot และ Exception Register
 
-## Decisions & Outcomes
-
-- เห็น Tenant Security Gaps ที่มีลำดับความสำคัญและ Owner
-- ได้ผลการแก้ Priority Controls พร้อม Evidence
-- เห็น Roadmap และ Exceptions ที่ต้องดำเนินการต่อ
-
 ## Engineering Assurance
 
 - Secure Score เป็นตัวชี้วัดหนึ่ง ไม่ใช่หลักฐานว่าปลอดภัยครบถ้วน
@@ -90,5 +90,13 @@ stateDiagram-v2
 
 กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-06)**
+
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
