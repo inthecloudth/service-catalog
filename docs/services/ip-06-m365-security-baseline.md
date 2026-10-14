@@ -2,7 +2,7 @@
 
 > **IP-06 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ประเมิน Security Baseline ของ Microsoft 365 และปรับปรุง Controls ที่มีผลต่อความเสี่ยงและ Secure Score
+**Expected Outcome:** ประเมิน Security Baseline ของ Microsoft 365 และปรับปรุง Controls ที่มีผลต่อความเสี่ยงและ Secure Score
 
 ## When to Engage
 
