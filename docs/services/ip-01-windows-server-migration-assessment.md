@@ -10,6 +10,12 @@
 - ต้องเลือกระหว่าง Upgrade, Side-by-side และ Rebuild โดยยังไม่เห็นความเสี่ยง
 - ต้องวางแผน Migration Waves ให้มีเจ้าของและลำดับความสำคัญ
 
+## Decisions & Outcomes
+
+- Workloads ใดพร้อมย้าย และ Workloads ใดติดข้อจำกัด
+- ควรใช้ Target Platform และ Migration Approach แบบใด
+- ควรจัดลำดับ Migration Waves อย่างไร
+
 ## Scope
 
 สำรวจ Server, Application และ Dependency ตามรายการที่ตกลง ประเมินความเสี่ยงและความซับซ้อน พร้อมกำหนด Target Baseline, Migration Approach และ Migration Waves; ไม่รวมการย้ายระบบจริง
@@ -56,12 +62,6 @@ flowchart LR
 
 Server/Workload Inventory, Dependency & Risk Assessment, Migration Strategy และ Roadmap
 
-## Decisions & Outcomes
-
-- Workloads ใดพร้อมย้าย และ Workloads ใดติดข้อจำกัด
-- ควรใช้ Target Platform และ Migration Approach แบบใด
-- ควรจัดลำดับ Migration Waves อย่างไร
-
 ## Engineering Assurance
 
 - ต้องทราบ Owner, Dependencies และความเสี่ยงก่อนให้สถานะว่าพร้อมย้าย
@@ -93,5 +93,13 @@ stateDiagram-v2
 
 กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
 
+## พูดคุยขอบเขตงาน
+
+หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
+
+**[ติดต่อทีม In the Cloud](mailto:info@inthecloud.co.th?subject=Service%20IP-01)**
+
 ---
-*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
+
+*Architecture และ State Models เป็นภาพเชิงแนวคิด ไม่ใช่ Production Topology ของลูกค้ารายใด*
+
