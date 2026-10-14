@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** บริการให้คำปรึกษาและแก้ไขปัญหาระบบ Infrastructure, Identity, Microsoft 365 และ Cloud ตามที่ร้องขอ
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - ทีมดูแลระบบต้องการกำลังเสริมในการวิเคราะห์ปัญหาที่ข้ามหลาย Technology Domains
 - มี Change, Health Check หรือ Architecture Decision ที่ต้องการ Second Opinion
@@ -85,11 +85,11 @@ stateDiagram-v2
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Service Requests, Impact/Priority, เจ้าของระบบ และช่องทางอนุมัติ Change
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
