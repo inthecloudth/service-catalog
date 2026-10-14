@@ -1,6 +1,9 @@
 site_name: In the Cloud - Service Catalog
 theme:
   name: material
+  font:
+    text: Inter
+    code: Roboto Mono
   logo: assets/inc-logo.webp
   favicon: assets/inc-logo.webp
   palette:
@@ -8,6 +11,7 @@ theme:
     primary: white
     accent: indigo
   features:
+    - navigation.tabs
     - navigation.sections
     - navigation.top
 extra_css:
@@ -20,7 +24,7 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
   - Home: index.md
-  - Service Packages:
+  - Services:
       - Overview: services/index.md
       - "Azure & Cloud Adoption":
           - "IP-11 Azure Landing Zones": services/ip-11-azure-landing-zones.md
@@ -45,3 +49,5 @@ nav:
       - "AI & Technical Support":
           - "IP-09 Enterprise MCP Server": services/ip-09-enterprise-mcp-server.md
           - "IP-10 Professional Support": services/ip-10-professional-support.md
+  - About: about.md
+  - Contact: contact.md
