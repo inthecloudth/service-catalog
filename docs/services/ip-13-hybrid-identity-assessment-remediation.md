@@ -2,7 +2,7 @@
 
 > **IP-13 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ประเมินความถูกต้อง ความปลอดภัย และความต่อเนื่องของ Identity Flow ระหว่าง Active Directory กับ Microsoft Entra ID แล้วแก้ไขความเสี่ยงที่ตกลง
+**Expected Outcome:** ประเมินความถูกต้อง ความปลอดภัย และความต่อเนื่องของ Identity Flow ระหว่าง Active Directory กับ Microsoft Entra ID แล้วแก้ไขความเสี่ยงที่ตกลง
 
 ## When to Engage
 
