@@ -1,10 +1,14 @@
 # Service Account Security Assessment & Remediation
 
-*Reusable technical service package*
+> **IP-03 | Repeatable Service Package**
 
-## Overview
+**ผลลัพธ์ที่มุ่งหวัง:** ตรวจสอบ Service Account และลดความเสี่ยงจากสิทธิ์เกินจำเป็นหรือการตั้งค่าที่ไม่ปลอดภัย
 
-ตรวจสอบ Service Account และลดความเสี่ยงจากสิทธิ์เกินจำเป็นหรือการตั้งค่าที่ไม่ปลอดภัย
+## เมื่อใดควรใช้บริการนี้
+
+- ไม่ทราบ Service Account Owner หรือระบบที่พึ่งพาบัญชี
+- Accounts มี Privileges สูงหรือสิทธิ์มากกว่าที่จำเป็น
+- การเปลี่ยน Credential อาจทำให้ Business Services หยุดทำงาน
 
 ## Scope
 
@@ -51,12 +55,45 @@ flowchart LR
 
 Service Account Inventory, Risk Register, Remediation Checklist และ Validation Results
 
-## Expected Outcome
+## Decisions & Outcomes
 
-ระบุ Owner และ Risks ตาม Scope พร้อมบันทึก Remediation ที่อนุมัติและผลการตรวจหลังเปลี่ยนแปลง
+- ได้ Inventory, Owner, Usage และ Dependencies ของ Accounts ใน Scope
+- เลือก Remediation หรือ gMSA Pilot ตามระดับความเสี่ยง
+- ตรวจสอบว่า Services ยังทำงานหลังปรับสิทธิ์
 
-## Boundary
+## Engineering Assurance
+
+- ระบุ Account Owner และ Consumers ก่อนแก้ Credentials หรือ Permissions
+- ปรับสิทธิ์ภายใต้ Change Approval และ Functional Validation
+
+**Failure & Recovery:** หาก Service Authentication ไม่ผ่านหลังเปลี่ยนแปลง ให้ย้อนกลับตามแผนและสืบค้น Consumer ที่ยังไม่ถูกค้นพบ
+
+### State & Decision Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> Unowned
+  Unowned --> Attributed: find owner and use
+  Attributed --> Evaluated: rights and dependencies
+  Evaluated --> Approved: approve least-privilege change
+  Evaluated --> Exception: risk accepted / incompatible
+  Approved --> Pilot: apply controlled change
+  Pilot --> Verified: service + authentication pass
+  Pilot --> Restored: failure / revert
+  Restored --> Evaluated: revise plan
+  Verified --> [*]
+  Exception --> [*]
+```
+
+## Assumptions & Boundaries
 
 ไม่รวมการแก้ไข Service Account ทุกระบบทั้งองค์กร; การเปลี่ยน Credential ต้องผ่าน Change Approval
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
+
+## Preparing for an Assessment
+
+กำหนดระบบและผู้รับผิดชอบที่เกี่ยวข้อง พร้อมข้อกำหนดการเข้าถึงและ Change Window เพื่อยืนยัน Scope, Validation และ Acceptance Criteria ก่อนเริ่มงาน
+
+---
+*Architecture และ State Models เป็นแบบจำลองเชิงแนวคิด ไม่ใช่ Production Topology ขององค์กรใดองค์กรหนึ่ง*
