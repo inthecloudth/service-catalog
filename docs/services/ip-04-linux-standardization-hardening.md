@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** กำหนดแนวทางบริหารจัดการ Linux ให้เป็นมาตรฐาน พร้อมสร้าง Reference Configuration ที่สามารถนำไปใช้ซ้ำได้
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - มี Linux หลาย Distribution หรือหลายทีมดูแลจน Configuration แตกต่างกัน
 - ยังไม่มีมาตรฐาน Access, Patching, Monitoring และ Backup ที่ใช้ร่วมกัน
@@ -84,11 +84,11 @@ stateDiagram-v2
 
 *Conceptual model only; detailed execution and estimates are maintained separately.*
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Linux Distributions/Versions, Existing Security Standards, Operations Tools และ Reference Hosts ที่ต้องการใช้เป็นต้นแบบ
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
