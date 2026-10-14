@@ -2,7 +2,7 @@
 
 > **IP-18 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ตรวจสอบ Microsoft 365 Tenant เทียบกับ CIS Microsoft 365 Foundations Benchmark รุ่นที่ตกลง พร้อมแก้ไข Priority Gaps โดยประเมิน License และ Business Impact ก่อน
+**Expected Outcome:** ตรวจสอบ Microsoft 365 Tenant เทียบกับ CIS Microsoft 365 Foundations Benchmark รุ่นที่ตกลง พร้อมแก้ไข Priority Gaps โดยประเมิน License และ Business Impact ก่อน
 
 ## When to Engage
 
