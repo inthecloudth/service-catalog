@@ -2,7 +2,7 @@
 
 > **IP-09 | Repeatable Service Package**
 
-**ผลลัพธ์ที่มุ่งหวัง:** ออกแบบและพัฒนา MCP Server เพื่อให้ AI Clients เรียกใช้งาน Enterprise APIs/ข้อมูลที่ได้รับอนุญาต
+**Expected Outcome:** ออกแบบและพัฒนา MCP Server เพื่อให้ AI Clients เรียกใช้งาน Enterprise APIs/ข้อมูลที่ได้รับอนุญาต
 
 ## When to Engage
 
