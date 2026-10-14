@@ -4,7 +4,7 @@
 
 **ผลลัพธ์ที่มุ่งหวัง:** ตรวจสอบ Microsoft 365 Tenant เทียบกับ CIS Microsoft 365 Foundations Benchmark รุ่นที่ตกลง พร้อมแก้ไข Priority Gaps โดยประเมิน License และ Business Impact ก่อน
 
-## เมื่อใดควรใช้บริการนี้
+## When to Engage
 
 - ต้องการตรวจสอบ Tenant Configuration กับ CIS Microsoft 365 Foundations Benchmark
 - ยังไม่แน่ใจว่า Controls ใดใช้ได้ตาม License, Service และ Business Processes
@@ -74,11 +74,11 @@ stateDiagram-v2
 
 CIS Conformance ไม่เท่ากับ Security Assurance หรือ Certification; การใช้ Controls ขึ้นกับ Product Licensing และ Benchmark Release; ไม่นำ Benchmark Content ที่มี Licensing Restrictions มาเผยแพร่
 
-## ก่อนเริ่มงาน
+## Getting Started
 
 เตรียม Tenant License Inventory, Benchmark Version/Profile, Test Users และผู้รับผิดชอบแต่ละ Workload
 
-## พูดคุยขอบเขตงาน
+## Discuss Your Project Scope
 
 หากองค์กรกำลังเผชิญปัญหาข้างต้น สามารถส่งภาพรวมระบบ จำนวน Workloads หรือ Accounts ที่เกี่ยวข้อง และผลลัพธ์ที่ต้องการ เพื่อร่วมกันกำหนด Scope และเกณฑ์รับมอบก่อนเริ่มงาน
 
