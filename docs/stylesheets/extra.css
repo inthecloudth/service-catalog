@@ -204,3 +204,93 @@
     font-size: 24px;
   }
 }
+
+/* Service account assessment evidence and portfolio visuals */
+.md-typeset .assessment-evidence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin: 15px 0 24px;
+}
+
+.md-typeset .assessment-evidence__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.md-typeset .assessment-evidence__label span,
+.md-typeset .assessment-evidence__hint {
+  color: #58616d;
+  font-size: 13px;
+}
+
+.md-typeset .assessment-evidence__track,
+.md-typeset .assessment-portfolio__track {
+  overflow: hidden;
+  height: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 3px;
+  background: #ffffff;
+}
+
+.md-typeset .assessment-evidence__track {
+  margin: 8px 0 6px;
+}
+
+.md-typeset .assessment-evidence__track span,
+.md-typeset .assessment-portfolio__track span {
+  display: block;
+  height: 100%;
+  background: #1f2937;
+}
+
+.md-typeset .assessment-portfolio {
+  display: grid;
+  gap: 11px;
+  margin: 18px 0;
+}
+
+.md-typeset .assessment-portfolio__row {
+  display: grid;
+  grid-template-columns: minmax(215px, 1.6fr) minmax(90px, 1fr) 28px;
+  gap: 12px;
+  align-items: center;
+}
+
+.md-typeset .assessment-portfolio__name {
+  color: #25303e;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.md-typeset .assessment-portfolio__value {
+  color: #111827;
+  text-align: right;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.md-typeset img[src$="service-account-register-preview.svg"] {
+  display: block;
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+@media screen and (max-width: 52em) {
+  .md-typeset .assessment-evidence {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .md-typeset .assessment-portfolio__row {
+    grid-template-columns: minmax(0, 1fr) 38px;
+    gap: 6px 10px;
+  }
+  .md-typeset .assessment-portfolio__name {
+    grid-column: 1 / -1;
+  }
+}
