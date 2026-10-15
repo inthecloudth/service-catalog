@@ -154,3 +154,53 @@
   font-size: 16px;
   line-height: 1.65;
 }
+
+/* Service-account sample assessment KPI dashboard */
+.md-typeset .assessment-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+.md-typeset .assessment-kpi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 104px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.md-typeset .assessment-kpi__number {
+  color: #111827;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+
+.md-typeset .assessment-kpi__label {
+  margin-top: 9px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+@media (max-width: 62em) {
+  .md-typeset .assessment-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 25em) {
+  .md-typeset .assessment-kpi {
+    min-height: 90px;
+    padding: 12px;
+  }
+  .md-typeset .assessment-kpi__number {
+    font-size: 24px;
+  }
+}
