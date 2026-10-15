@@ -25,7 +25,6 @@
 **Question:** What must remain consistent for directory authentication to work?
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"primaryColor":"#ffffff","primaryTextColor":"#000000","primaryBorderColor":"#000000","secondaryColor":"#ffffff","secondaryTextColor":"#000000","secondaryBorderColor":"#000000","tertiaryColor":"#ffffff","tertiaryTextColor":"#000000","tertiaryBorderColor":"#000000","mainBkg":"#ffffff","nodeBorder":"#000000","lineColor":"#000000","textColor":"#000000","nodeTextColor":"#000000","titleColor":"#000000","background":"#ffffff","clusterBkg":"#ffffff","clusterBorder":"#000000","edgeLabelBackground":"#ffffff","labelColor":"#000000","transitionColor":"#000000","altBackground":"#ffffff","fontFamily":"Inter, Arial, sans-serif"}}}%%
 flowchart LR
   Client["User / computer / application"] --> DNS["DNS / DC Locator"]
   DNS --> DC1["Domain Controller A"]
@@ -61,7 +60,6 @@ AD DS Topology & Health Assessment, Risk Register, Remediation Plan, Change Evid
 ### State & Decision Model
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"primaryColor":"#ffffff","primaryTextColor":"#000000","primaryBorderColor":"#000000","secondaryColor":"#ffffff","secondaryTextColor":"#000000","secondaryBorderColor":"#000000","tertiaryColor":"#ffffff","tertiaryTextColor":"#000000","tertiaryBorderColor":"#000000","mainBkg":"#ffffff","nodeBorder":"#000000","lineColor":"#000000","textColor":"#000000","nodeTextColor":"#000000","titleColor":"#000000","background":"#ffffff","clusterBkg":"#ffffff","clusterBorder":"#000000","edgeLabelBackground":"#ffffff","labelColor":"#000000","transitionColor":"#000000","altBackground":"#ffffff","fontFamily":"Inter, Arial, sans-serif"}}}%%
 stateDiagram-v2
   [*] --> TopologyKnown
   TopologyKnown --> HealthMeasured: gather evidence
