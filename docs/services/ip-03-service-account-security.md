@@ -49,6 +49,19 @@ flowchart LR
   Identity -.->|observations| Evidence
 ```
 
+## Optional Security Platform Integration
+
+บริการหลักสามารถดำเนินการด้วยข้อมูลจาก AD DS, Windows Services, Event Logs และหลักฐานจาก Application Owners ได้ โดย **ไม่จำเป็นต้องมีผลิตภัณฑ์เสริม** หากองค์กรใช้งาน Platform ที่รองรับอยู่แล้ว สามารถเพิ่มการวิเคราะห์ดังนี้
+
+| Optional Platform | Additional Assessment Capabilities |
+|---|---|
+| **Microsoft Defender for Identity (MDI)** | Service Account Discovery, Source–Destination Authentication Connections, Kerberos/NTLM Activity, Identity Security Posture Findings, Privileged/Stale Service Account Review และ Threat Investigation |
+| **Silverfort** | Authentication Visibility, Behavioral Baseline, Anomaly Review และการประเมิน Readiness สำหรับ Smart Policy / Virtual Fencing ตาม Deployment และ License ที่รองรับ |
+
+ข้อมูลจาก Platform จะถูกใช้เป็น **Evidence เพิ่มเติม** เพื่อทำ Dependency Mapping, Risk Prioritization และ Remediation Planning ไม่ใช่เกณฑ์สรุปว่า Account ใช้งานไม่ได้หรือลบได้โดยอัตโนมัติ
+
+**Scope Boundary:** MDI เหมาะกับ Visibility, Detection และ Posture Assessment โดยอาจรองรับ Response Actions บางประเภท แต่ไม่ถือว่าให้ Authentication Virtual Fencing เหมือน Silverfort ทั้งสองทางเลือกต้องตรวจ Coverage, Permissions, Licensing, Data Retention และ Identity Owners ก่อนเริ่มงาน
+
 ## Standard Delivery
 
 1. สำรวจ Account, Owner, Usage และ Dependency
