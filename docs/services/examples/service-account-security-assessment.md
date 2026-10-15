@@ -14,6 +14,21 @@
   <div class="assessment-kpi"><span class="assessment-kpi__number">38/50</span><span class="assessment-kpi__label">Dependencies Mapped</span></div>
 </div>
 
+### Evidence Coverage
+
+<div class="assessment-evidence" aria-label="Demo assessment coverage">
+  <div class="assessment-evidence__item">
+    <div class="assessment-evidence__label"><strong>Account ownership verified</strong><span>41 / 50 · 82%</span></div>
+    <div class="assessment-evidence__track" role="img" aria-label="41 of 50 account owners verified; 82 percent"><span style="width:82%"></span></div>
+    <div class="assessment-evidence__hint">9 accounts require owner confirmation</div>
+  </div>
+  <div class="assessment-evidence__item">
+    <div class="assessment-evidence__label"><strong>Dependencies mapped</strong><span>38 / 50 · 76%</span></div>
+    <div class="assessment-evidence__track" role="img" aria-label="38 of 50 dependencies mapped; 76 percent"><span style="width:76%"></span></div>
+    <div class="assessment-evidence__hint">12 accounts require further dependency evidence</div>
+  </div>
+</div>
+
 **Decision required:** ให้ Account Owners ตรวจสอบ 9 บัญชีที่ยังไม่ยืนยันเจ้าของ และ 12 บัญชีที่ Dependency Evidence ยังไม่ครบ พร้อมอนุมัติลำดับ Remediation ตามความเสี่ยงจริง ตัวเลขเหล่านี้อาจเป็นคนละกลุ่มหรือซ้อนทับกันได้
 
 ## Risk Distribution
@@ -49,6 +64,17 @@ Risk Bands ในรายงานตัวอย่างเป็นการ
 | Accept & Monitor | 5 | บันทึกเหตุผล, Risk Owner, Evidence และรอบ Review |
 | **Total** | **50** | **Proposed classifications — no changes have been applied** |
 
+<div class="assessment-portfolio" aria-label="Remediation action groups for 50 fictional accounts">
+  <div class="assessment-portfolio__row"><span class="assessment-portfolio__name">Privileged Access Review</span><div class="assessment-portfolio__track" role="img" aria-label="8 of 50 demo accounts in Privileged Access Review"><span style="width:16%"></span></div><strong class="assessment-portfolio__value">8</strong></div>
+  <div class="assessment-portfolio__row"><span class="assessment-portfolio__name">Least-Privilege Remediation</span><div class="assessment-portfolio__track" role="img" aria-label="12 of 50 demo accounts in Least-Privilege Remediation"><span style="width:24%"></span></div><strong class="assessment-portfolio__value">12</strong></div>
+  <div class="assessment-portfolio__row"><span class="assessment-portfolio__name">Credential Modernization</span><div class="assessment-portfolio__track" role="img" aria-label="11 of 50 demo accounts in Credential Modernization"><span style="width:22%"></span></div><strong class="assessment-portfolio__value">11</strong></div>
+  <div class="assessment-portfolio__row"><span class="assessment-portfolio__name">Ownership / Dependency Investigation</span><div class="assessment-portfolio__track" role="img" aria-label="9 of 50 demo accounts in Ownership / Dependency Investigation"><span style="width:18%"></span></div><strong class="assessment-portfolio__value">9</strong></div>
+  <div class="assessment-portfolio__row"><span class="assessment-portfolio__name">Potential Inactivity Investigation</span><div class="assessment-portfolio__track" role="img" aria-label="5 of 50 demo accounts in Potential Inactivity Investigation"><span style="width:10%"></span></div><strong class="assessment-portfolio__value">5</strong></div>
+  <div class="assessment-portfolio__row"><span class="assessment-portfolio__name">Accept & Monitor</span><div class="assessment-portfolio__track" role="img" aria-label="5 of 50 demo accounts in Accept & Monitor"><span style="width:10%"></span></div><strong class="assessment-portfolio__value">5</strong></div>
+</div>
+
+*แถบสีดำแสดงจำนวนบัญชีเทียบกับทั้งหมด 50 บัญชี โดยแต่ละบัญชีอยู่ใน Primary Remediation Group เดียว*
+
 ## Example Account-level Findings
 
 ชื่อบัญชีและ Host ในตารางนี้เป็น **ชื่อสมมติทั้งหมด** เพื่ออธิบายว่า Executive Findings เชื่อมต่อกับ Engineer Remediation Register อย่างไร
@@ -62,6 +88,16 @@ Risk Bands ในรายงานตัวอย่างเป็นการ
 | `demo_svc_archive` | Low | ไม่พบ Activity ใน Observation Window ที่มี | ตรวจ Periodic Jobs และ Retention ก่อนพิจารณาการเปลี่ยนใด ๆ | Investigate |
 
 **หลักการ:** ไม่พบ Authentication Event ไม่ได้แปลว่าบัญชีไม่ได้ใช้งาน และยังไม่ใช่เหตุผลที่เพียงพอสำหรับ Disable/Delete
+
+## Account Register — Spreadsheet Preview
+
+รายงานระดับ Management เชื่อมกับ Account-level Register ได้โดยตรง ตัวอย่างภาพด้านล่างเป็น **Spreadsheet-style Preview** จากชุดข้อมูลสมมติเดียวกัน ไม่ใช่ภาพหน้าจอของระบบลูกค้า
+
+[![Example account register worksheet with fictional service accounts](../../assets/examples/service-account-register-preview.svg)](../../assets/examples/service-account-register-preview.svg)
+
+**[View full-size preview](../../assets/examples/service-account-register-preview.svg)** · **[Download 50-row Excel-ready CSV](../../assets/examples/service-account-register-demo.csv)**
+
+ไฟล์ CSV สามารถเปิดใน Excel เพื่อ Filter ตาม Risk, Owner Verified, Dependencies Mapped, Remediation Group และ Status ได้ โดยไม่ต้องติดตั้งเครื่องมือเพิ่มเติม
 
 ## Assessment Evidence & Coverage
 
@@ -87,6 +123,23 @@ Risk Bands ในรายงานตัวอย่างเป็นการ
 | 1 — Pilot | Selected Least-Privilege หรือ Credential Modernization Candidates | มี Change Approval, Recovery Plan และ Functional Test |
 | 2 — Remediate | Accounts ที่ผ่าน Pilot และอนุมัติแล้ว | ยืนยัน Sign-in, Application Function และ Effective Access |
 | 3 — Review | Remaining Exceptions, Monitoring และ Lifecycle Improvements | Risk Owners รับทราบและกำหนดวัน Review |
+
+### Remediation Decision Flow
+
+```mermaid
+flowchart LR
+    A["Inventory + evidence"] --> B["Owner / dependency review"]
+    B --> C{"Evidence sufficient?"}
+    C -->|"No"| D["Investigate / exception"]
+    C -->|"Yes"| E["Approve scoped remediation"]
+    E --> F["Pilot + functional validation"]
+    F --> G{"Tests pass?"}
+    G -->|"No"| H["Restore + reassess"]
+    G -->|"Yes"| I["Handover + monitor"]
+    H --> B
+```
+
+*การแสดงผลนี้เป็น Decision Model ไม่ใช่เครื่องมือ Remediation อัตโนมัติ*
 
 !!! note "Example, not an execution report"
     รายงานนี้แสดง **Proposed Actions** เท่านั้น ไม่มีบัญชีใดถูกเปลี่ยนแปลงจริง การดำเนินงานจริงขึ้นกับ Account Owners, Business Impact, Change Approval, Telemetry Coverage และการทดสอบหลังเปลี่ยนแปลง
