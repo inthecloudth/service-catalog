@@ -25,6 +25,7 @@
 **System question:** What can an AI app see, and which controls constrain that access?
 
 ```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#ffffff","primaryTextColor":"#000000","primaryBorderColor":"#000000","secondaryColor":"#ffffff","secondaryTextColor":"#000000","secondaryBorderColor":"#000000","tertiaryColor":"#ffffff","tertiaryTextColor":"#000000","tertiaryBorderColor":"#000000","mainBkg":"#ffffff","nodeBorder":"#000000","lineColor":"#000000","textColor":"#000000","nodeTextColor":"#000000","titleColor":"#000000","background":"#ffffff","clusterBkg":"#ffffff","clusterBorder":"#000000","edgeLabelBackground":"#ffffff","labelColor":"#000000","transitionColor":"#000000","altBackground":"#ffffff","fontFamily":"Inter, Arial, sans-serif"}}}%%
 flowchart LR
   Employee["Employee"] --> AI["AI / Copilot / SaaS app"]
   subgraph Identity["Identity and consent boundary"]
@@ -68,6 +69,7 @@ AI App/Data Risk Assessment, Policy Matrix, Pilot Control Evidence และ Act
 ### State & Decision Model
 
 ```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#ffffff","primaryTextColor":"#000000","primaryBorderColor":"#000000","secondaryColor":"#ffffff","secondaryTextColor":"#000000","secondaryBorderColor":"#000000","tertiaryColor":"#ffffff","tertiaryTextColor":"#000000","tertiaryBorderColor":"#000000","mainBkg":"#ffffff","nodeBorder":"#000000","lineColor":"#000000","textColor":"#000000","nodeTextColor":"#000000","titleColor":"#000000","background":"#ffffff","clusterBkg":"#ffffff","clusterBorder":"#000000","edgeLabelBackground":"#ffffff","labelColor":"#000000","transitionColor":"#000000","altBackground":"#ffffff","fontFamily":"Inter, Arial, sans-serif"}}}%%
 stateDiagram-v2
   [*] --> Discovered
   Discovered --> Evaluated: review permissions and data flows
