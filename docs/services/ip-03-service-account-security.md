@@ -74,6 +74,10 @@ flowchart LR
 
 Service Account Inventory, Risk Register, Remediation Checklist และ Validation Results
 
+**Example Deliverable:** [View Sample Assessment Report — 50 Service Accounts](examples/service-account-security-assessment.md)
+
+ตัวอย่างรายงานแสดง Executive Dashboard, Risk Distribution, Remediation Groups และ Account-level Findings จาก **ข้อมูลสมมติทั้งหมด** เพื่อให้เห็นลักษณะสิ่งที่จะได้รับก่อนกำหนด Scope จริง
+
 ## Engineering Assurance
 
 - ระบุ Account Owner และ Consumers ก่อนแก้ Credentials หรือ Permissions
