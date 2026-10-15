@@ -24,6 +24,8 @@
 - **Standard Delivery** — ขั้นตอนงานและ Deliverables ในระดับที่กำหนด Scope ได้
 - **Engineering Assurance** — เงื่อนไขความปลอดภัย, State Transitions, Failure/Recovery และข้อจำกัด
 
+**Sample Deliverable:** [Service Account Security — Assessment Dashboard for 50 Demo Accounts](examples/service-account-security-assessment.md)
+
 ## Browse by Category
 
 เลือกหมวดบริการเพื่อขยายรายการ แล้วคลิก Service IP เพื่อดู Architecture, Scope และ Deliverables โดยตรง
