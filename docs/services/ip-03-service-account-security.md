@@ -72,9 +72,11 @@ flowchart LR
 
 ## Deliverables
 
-Service Account Inventory, Risk Register, Remediation Checklist และ Validation Results
+Service Account Raw Data Register (Excel-compatible), Risk Register, Remediation Checklist และ Validation Results
 
 **Example Deliverable:** [View Sample Assessment Report — 50 Service Accounts](examples/service-account-security-assessment.md)
+
+**Raw Data Example:** [View 50 fictional service accounts — Excel-ready CSV](../assets/examples/service-account-register-demo.csv)
 
 ตัวอย่างรายงานแสดง Executive Dashboard, Risk Distribution, Remediation Groups และ Account-level Findings จาก **ข้อมูลสมมติทั้งหมด** เพื่อให้เห็นลักษณะสิ่งที่จะได้รับก่อนกำหนด Scope จริง
 
