@@ -89,6 +89,29 @@ Risk Bands ในรายงานตัวอย่างเป็นการ
 
 **หลักการ:** ไม่พบ Authentication Event ไม่ได้แปลว่าบัญชีไม่ได้ใช้งาน และยังไม่ใช่เหตุผลที่เพียงพอสำหรับ Disable/Delete
 
+## Raw Account Data — Excel Register
+
+**[Download the complete 50-account Excel-ready raw dataset (CSV)](../../assets/examples/service-account-register-demo.csv)**
+
+ไฟล์ Raw Data ตัวอย่างมี 50 บัญชีและ **21 คอลัมน์** จัดแบ่งเป็นสองกลุ่ม โดย **13 คอลัมน์แรก** คือข้อมูล Directory, Activity, Systems และ Remediation ที่ใช้วิเคราะห์รายบัญชี ส่วน 8 คอลัมน์ท้ายใช้บริหารการตรวจสอบและการอนุมัติ
+
+| Raw Data Fields | Purpose |
+|---|---|
+| **No., Account Name, UPN, Description** | ระบุบัญชีและหน้าที่ของบัญชีในระบบ |
+| **Status (Enabled / Disabled)** | สถานะปัจจุบันของบัญชี ไม่ใช่ผลการ Remediation |
+| **Who Created (Audit-Verified), Created Date** | ผู้สร้างและวันที่สร้าง — ระบุว่า Not Verified หากไม่มีหลักฐาน Audit |
+| **Last Logon Timestamp (AD)** | สัญญาณ Last Logon ของ AD ซึ่งเป็นค่าโดยประมาณ ไม่ใช่หลักฐานว่าบัญชียังใช้หรือเลิกใช้แล้ว |
+| **Group Membership** | Direct Group Membership ที่ต้องตรวจ Privileges และ Nested Membership เพิ่มตาม Scope |
+| **Servers Observed (Last 90 Days)** | Source Servers ที่พบจาก Authentication Evidence เท่าที่ระบบ Monitoring ครอบคลุม |
+| **System / Application Used** | ระบบที่เจ้าของงานยืนยันว่าใช้บัญชีนั้น |
+| **Action (Proposed), Notes** | สิ่งที่เสนอให้ Disable, Delete, Remove Privilege หรือ Convert to gMSA พร้อมเหตุผลและข้อควรระวัง |
+
+**Governance Fields (อีก 8 คอลัมน์):** Risk Level, Primary Remediation Group, Owner Verified, Dependencies Mapped, Evidence/Data Source, Action Approval, Action Status และ Owner/Reviewer
+
+**สำคัญ:** `Who Created` อาจตรวจสอบย้อนหลังไม่ได้หากไม่มี Account Creation Audit เช่น Event 4720; `lastLogonTimestamp` ไม่ได้อัปเดตแบบ Real-time; และรายการ Servers ใน 90 วันขึ้นอยู่กับ Log Retention / Sensor Coverage การไม่พบเหตุการณ์จึง **ไม่ใช่เหตุผลเพียงพอสำหรับ Disable หรือ Delete**
+
+**Action** ในไฟล์ทั้งหมดเป็นข้อเสนอเท่านั้น และใช้ชื่อที่ถูกต้องว่า **gMSA (Group Managed Service Account)** สำหรับการประเมินการเปลี่ยน Credential Management
+
 ## Account Register — Spreadsheet Preview
 
 รายงานระดับ Management เชื่อมกับ Account-level Register ได้โดยตรง ตัวอย่างภาพด้านล่างเป็น **Spreadsheet-style Preview** จากชุดข้อมูลสมมติเดียวกัน ไม่ใช่ภาพหน้าจอของระบบลูกค้า
@@ -97,7 +120,7 @@ Risk Bands ในรายงานตัวอย่างเป็นการ
 
 **[View full-size preview](../../assets/examples/service-account-register-preview.svg)** · **[Download 50-row Excel-ready CSV](../../assets/examples/service-account-register-demo.csv)**
 
-ไฟล์ CSV สามารถเปิดใน Excel เพื่อ Filter ตาม Risk, Owner Verified, Dependencies Mapped, Remediation Group และ Status ได้ โดยไม่ต้องติดตั้งเครื่องมือเพิ่มเติม
+ไฟล์ CSV เปิดได้ใน Excel และมีทั้ง 13 Raw Data Fields กับ 8 Governance Fields จึงสามารถ Filter ตาม Account Status, Creation Evidence, Last Logon, Source Servers, Risk, Proposed Action และ Approval Status ได้
 
 ## Assessment Evidence & Coverage
 
