@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" role="img" aria-label="Enterprise MCP Server architecture showing MCP clients, Microsoft Entra identity, MCP policy gateway, Microsoft 365 via Microsoft Graph, Azure via resource APIs, and AWS via SDK with IAM roles">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="none" stroke="#111" stroke-width="1.5"/></marker></defs>
+<rect width="1600" height="940" fill="#fff"/>
+<text x="800" y="61" font-family="Georgia, Times New Roman, serif" font-size="37" fill="#111" font-weight="700" text-anchor="middle">Enterprise MCP Server Implementation &amp; Integration</text>
+<text x="800" y="96" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#444" font-weight="400" text-anchor="middle">Microsoft 365  /  Azure  /  AWS</text>
+<line x1="40" y1="114" x2="1560" y2="114" stroke="#777" stroke-width="1"/>
+<rect x="35" y="137" width="246" height="566" rx="14" fill="#fff" stroke="#999" stroke-width="1.3" stroke-dasharray="6 5"/>
+<circle cx="63" cy="168" r="17" fill="#111"/>
+<text x="63" y="175" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">1</text>
+<text x="92" y="175" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" font-weight="700" text-anchor="start">AI clients</text>
+<rect x="51" y="216" width="215" height="78" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="67" y="242" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">AI host / chat client</text>
+<text x="67" y="264" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Authorized user</text>
+<rect x="51" y="309" width="215" height="78" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="67" y="335" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Business workflow</text>
+<text x="67" y="357" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Read / approved actions</text>
+<rect x="51" y="402" width="215" height="78" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="67" y="428" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">IT operations agent</text>
+<text x="67" y="450" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Support &amp; monitoring</text>
+<rect x="51" y="495" width="215" height="78" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="67" y="521" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Internal application</text>
+<text x="67" y="543" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">MCP client / agent</text>
+<text x="158" y="629" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#555" font-weight="400" text-anchor="middle">Client calls only approved</text>
+<text x="158" y="650" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#555" font-weight="400" text-anchor="middle">MCP tools</text>
+<rect x="307" y="137" width="237" height="566" rx="14" fill="#fff" stroke="#999" stroke-width="1.3" stroke-dasharray="6 5"/>
+<circle cx="335" cy="168" r="17" fill="#111"/>
+<text x="335" y="175" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">2</text>
+<text x="364" y="175" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" font-weight="700" text-anchor="start">Identity</text>
+<rect x="324" y="216" width="201" height="86" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="340" y="242" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Microsoft Entra ID</text>
+<text x="340" y="264" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">SSO / CA / MFA</text>
+<rect x="324" y="319" width="201" height="86" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="340" y="345" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Caller identity</text>
+<text x="340" y="367" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Token issuer &amp; audience</text>
+<rect x="324" y="422" width="201" height="86" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="340" y="448" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Access decision</text>
+<text x="340" y="470" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Groups / role / policy</text>
+<rect x="324" y="525" width="201" height="86" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="340" y="551" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Approvals</text>
+<text x="340" y="573" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">High-risk write operations</text>
+<text x="425" y="657" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#555" font-weight="400" text-anchor="middle">Never infer privilege from</text>
+<text x="425" y="675" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#555" font-weight="400" text-anchor="middle">the AI prompt</text>
+<rect x="570" y="137" width="431" height="566" rx="14" fill="#fff" stroke="#999" stroke-width="1.3" stroke-dasharray="6 5"/>
+<circle cx="598" cy="168" r="17" fill="#111"/>
+<text x="598" y="175" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">3</text>
+<text x="627" y="175" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" font-weight="700" text-anchor="start">MCP platform</text>
+<text x="593" y="206" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#111" font-weight="700" text-anchor="start">Enterprise MCP Server</text>
+<text x="593" y="230" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#555" font-weight="400" text-anchor="start">Remote endpoint  •  Allowlisted tools  •  Enterprise API adapters</text>
+<rect x="586" y="254" width="196" height="75" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="602" y="280" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Authentication</text>
+<text x="602" y="302" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Validate MCP access token</text>
+<rect x="793" y="254" width="192" height="75" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="809" y="280" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Tool registry</text>
+<text x="809" y="302" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Contracts &amp; schemas</text>
+<rect x="586" y="342" width="196" height="75" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="602" y="368" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Authorization</text>
+<text x="602" y="390" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Caller + tool + resource</text>
+<rect x="793" y="342" width="192" height="75" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="809" y="368" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Input / output controls</text>
+<text x="809" y="390" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Schema, limits, redaction</text>
+<rect x="586" y="430" width="196" height="75" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="602" y="456" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">M365 connector</text>
+<text x="602" y="478" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Graph &amp; approved APIs</text>
+<rect x="793" y="430" width="192" height="75" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="809" y="456" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Azure / AWS</text>
+<text x="809" y="478" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">ARM, SDK &amp; STS</text>
+<rect x="586" y="518" width="399" height="74" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="602" y="544" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Telemetry &amp; audit</text>
+<text x="602" y="566" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Tool, principal, decision, correlation ID</text>
+<rect x="586" y="606" width="399" height="79" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="602" y="632" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Hosting &amp; secret management</text>
+<text x="602" y="654" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Azure or AWS runtime; vault, TLS, logging</text>
+<rect x="1027" y="137" width="538" height="566" rx="14" fill="#fff" stroke="#999" stroke-width="1.3" stroke-dasharray="6 5"/>
+<circle cx="1055" cy="168" r="17" fill="#111"/>
+<text x="1055" y="175" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">4</text>
+<text x="1084" y="175" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" font-weight="700" text-anchor="start">Enterprise systems</text>
+<rect x="1045" y="200" width="504" height="217" rx="9" fill="#fff" stroke="#777" stroke-width="1.3" />
+<text x="1061" y="226" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111" font-weight="700" text-anchor="start">Microsoft 365 — Microsoft Graph / workload APIs</text>
+<rect x="1062" y="250" width="229" height="67" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="1078" y="276" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Exchange Online</text>
+<text x="1078" y="298" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Mail + calendar</text>
+<rect x="1300" y="250" width="231" height="67" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="1316" y="276" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Microsoft Teams</text>
+<text x="1316" y="298" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Teams, channels, messages</text>
+<rect x="1062" y="330" width="229" height="67" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="1078" y="356" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">SharePoint Online</text>
+<text x="1078" y="378" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Sites, lists, documents</text>
+<rect x="1300" y="330" width="231" height="67" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="1316" y="356" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">OneDrive</text>
+<text x="1316" y="378" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">User files + metadata</text>
+<rect x="1045" y="429" width="504" height="120" rx="9" fill="#fff" stroke="#777" stroke-width="1.3" />
+<text x="1061" y="455" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111" font-weight="700" text-anchor="start">Azure — ARM / service APIs</text>
+<rect x="1062" y="468" width="229" height="67" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="1078" y="494" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Azure Resource Manager</text>
+<text x="1078" y="516" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Scoped resource inventory</text>
+<rect x="1300" y="468" width="231" height="67" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="1316" y="494" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Azure Monitor</text>
+<text x="1316" y="516" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Alerts / metrics (if enabled)</text>
+<rect x="1045" y="561" width="504" height="125" rx="9" fill="#fff" stroke="#777" stroke-width="1.3" />
+<text x="1061" y="586" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111" font-weight="700" text-anchor="start">AWS — SDK / role trust / STS</text>
+<rect x="1062" y="601" width="229" height="67" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="1078" y="627" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">AWS IAM / STS</text>
+<text x="1078" y="649" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Temporary scoped credentials</text>
+<rect x="1300" y="601" width="231" height="67" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="1316" y="627" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">AWS services</text>
+<text x="1316" y="649" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">EC2 / CloudWatch / S3</text>
+<path d="M281 369 L307 369" fill="none" stroke="#111" stroke-width="1.7"  marker-end="url(#arr)"/>
+<path d="M544 369 L570 369" fill="none" stroke="#111" stroke-width="1.7"  marker-end="url(#arr)"/>
+<path d="M1001 300 L1045 300" fill="none" stroke="#111" stroke-width="1.7"  marker-end="url(#arr)"/>
+<path d="M1001 488 L1045 488" fill="none" stroke="#111" stroke-width="1.7"  marker-end="url(#arr)"/>
+<path d="M1001 630 L1045 630" fill="none" stroke="#111" stroke-width="1.7"  marker-end="url(#arr)"/>
+<text x="1018" y="284" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" font-weight="400" text-anchor="start"></text>
+<rect x="35" y="727" width="1530" height="136" rx="12" fill="#fff" stroke="#999" stroke-width="1.3" stroke-dasharray="6 5"/>
+<circle cx="63" cy="758" r="17" fill="#111"/>
+<text x="63" y="765" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#fff" font-weight="700" text-anchor="middle">5</text>
+<text x="92" y="765" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111" font-weight="700" text-anchor="start">Cross-cutting security and operational controls</text>
+<rect x="53" y="791" width="360" height="55" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="69" y="817" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Least-privilege API access</text>
+<text x="69" y="839" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Backend checks remain authoritative</text>
+<rect x="429" y="791" width="360" height="55" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="445" y="817" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Read-first / approval for writes</text>
+<text x="445" y="839" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Explicit ownership and confirmation</text>
+<rect x="805" y="791" width="360" height="55" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="821" y="817" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">No bearer token passthrough</text>
+<text x="821" y="839" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">Use delegated/OBO or workload identity</text>
+<rect x="1181" y="791" width="360" height="55" rx="7" fill="#fff" stroke="#444" stroke-width="1.3" />
+<text x="1197" y="817" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#111" font-weight="700" text-anchor="start">Logs / response filtering</text>
+<text x="1197" y="839" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#444" font-weight="400" text-anchor="start">No raw secrets or unnecessary content</text>
+<line x1="35" y1="888" x2="1565" y2="888" stroke="#777" stroke-width="1"/>
+<text x="800" y="912" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#555" font-weight="400" text-anchor="middle">Conceptual architecture • Actual tool access depends on resource permissions, approved use cases, identity model, and hosting.</text>
+</svg>
