@@ -4,6 +4,8 @@
 
 **Expected Outcome:** ตรวจสอบ Service Account และลดความเสี่ยงจากสิทธิ์เกินจำเป็นหรือการตั้งค่าที่ไม่ปลอดภัย
 
+**Customer Brochure:** [Service Account Security Assessment & Remediation — 10 Capabilities, Scope, Tools & Sample Reports](brochures/ip-03-service-account-security.md)
+
 ## When to Engage
 
 - ไม่ทราบ Service Account Owner หรือระบบที่พึ่งพาบัญชี
