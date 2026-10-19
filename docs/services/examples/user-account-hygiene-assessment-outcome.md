@@ -47,7 +47,7 @@ pie showData
 | `demo_user_0017` | Hybrid | Confirmed Owner and Approval | Approved / Awaiting Window |
 | `demo_user_0054` | AD DS | Retention Exception | Retain / Review Later |
 | `demo_user_0074` | Hybrid | Data / HR Evidence Incomplete | Investigate |
-| `demo_user_0110` | Entra Cloud-only | Owner Not Yet Confirmed | Awaiting Owner Review |
+| `demo_user_0110` | Hybrid | Owner Not Yet Confirmed | Awaiting Owner Review |
 
 **[Download the 134-candidate Decision Register (Excel-ready CSV)](../../assets/examples/user-account-hygiene-candidates-demo.csv)**
 
