@@ -22,6 +22,29 @@
 
 การจัดการอาจรวมถึงการยืนยัน Owner, ปิดการใช้งานบัญชี, ทบทวน Group/License และกำหนด Retention/Deletion Workflow **เฉพาะรายการที่ได้รับอนุมัติ**; บัญชี Privileged, Break-glass, Service/Automation และ Guest Accounts ต้องกำหนด Exception หรือ Scope แยกให้เหมาะสม
 
+## Account Discovery & Evidence Model
+
+| Data / Signal | Typical Source | Interpretation |
+|---|---|---|
+| Account ID, UPN, Status, Created Date | AD DS / Microsoft Entra ID | ระบุตัวตนและสถานะ ไม่ได้ยืนยันว่าเลิกใช้งานแล้ว |
+| Source of Authority | AD DS, Entra ID หรือ Hybrid Sync | กำหนดจุดที่เปลี่ยนแปลง Account ได้อย่างถูกต้อง |
+| Last Logon Evidence | AD `lastLogonTimestamp` / Per-DC Logs, Entra `signInActivity` | ต้องพิจารณา Freshness, Successful vs Failed Attempts และ Coverage |
+| HR Employment & Owner Confirmation | HR/Business Owners ตามสิทธิ์ที่อนุมัติ | ยืนยันว่าบัญชียังต้องใช้งานหรือเป็น Offboarding Candidate |
+| Group, App, License & Data Dependencies | AD Groups, Entra Assignments, M365, App Owners | ลดความเสี่ยงที่จะตัด Business Access หรือทำ Data Ownership หาย |
+| Exceptions & Retention | Security/Identity/Compliance Owners | ระบุบัญชีที่ต้องเก็บไว้และเงื่อนไขการลบในอนาคต |
+
+**Separation of concerns:** กำหนด **Inactivity Signal**, **Business Decision**, **Approved Action** และ **Post-change Verification** แยกจากกัน ผู้ใช้ที่ไม่ Sign in ช่วงเวลาหนึ่งอาจอยู่ระหว่างลางาน ใช้งานแบบไม่โต้ตอบ หรือใช้ Application ที่ไม่ได้ส่ง Logs มายังแหล่งข้อมูลที่กำลังตรวจ
+
+### Remediation Decision Groups
+
+| Group | Recommended Decision | Change Boundary |
+|---|---|---|
+| Active / Required | Retain พร้อม Owner/Review Date | No change |
+| Owner Review Required | Verify HR & Application Dependencies | No disable |
+| Approved Reversible Remediation | Pilot Disable / Group or License Cleanup | Approved Authoritative Source |
+| Accepted Exception | บันทึก Risk Owner และ Reassessment Date | No automated deletion |
+| Retention / Deletion Candidate | ส่งต่อ HR/Data Owner/Legal for retention decision | Separate approval/workstream |
+
 ## Architecture Mental Model
 
 **System question:** How can an organization identify unnecessary access without mistaking inactivity for a safe-to-delete account?
@@ -51,7 +74,13 @@ flowchart LR
 
 ## Deliverables
 
-User Account Inventory, Inactivity & Ownership Findings, Remediation/Exception Register, Approved Action Evidence และ Account Lifecycle Improvement Roadmap
+User Account Inventory (Excel-compatible), **Inactivity & Ownership Evidence Register**, Candidate Disposition Dashboard, Proposed Remediation/Exception Register, Approved Before/After Validation Evidence และ Account Lifecycle Improvement Roadmap
+
+**Example Deliverable:** [View User Account Hygiene Sample Outcome — 1,000 Users / 134 Candidates](examples/user-account-hygiene-assessment-outcome.md)
+
+**Raw Review Register:** [Download 134 fictional Candidate Decisions (CSV)](../assets/examples/user-account-hygiene-candidates-demo.csv)
+
+ตัวอย่างรายงานแยก **Account Population, Review Candidates, Owner Confirmation, Approved Actions และ Completed Actions** เพื่อไม่สื่อว่าบัญชีที่ไม่ค่อยใช้งานถูกปิดหรือลบไปทั้งหมดแล้ว
 
 ## Engineering Assurance
 
@@ -81,6 +110,20 @@ stateDiagram-v2
   Retained --> [*]
 ```
 
+## Example Outcome & Decision Evidence
+
+**Illustrative scope:** สมมติมี Human Users 1,000 บัญชี พบ 134 Review Candidates ตรวจสอบ Owner/HR แล้ว 76 บัญชี ได้รับอนุมัติ Disable แบบกู้คืนได้ 38 บัญชี (ดำเนินการ Pilot/Validation เสร็จ 10 และรอ Change Window อีก 28) ส่วน 21 บัญชีเป็น Retain/Exception, 17 บัญชีต้องหาหลักฐานเพิ่ม และ 58 บัญชียังรอ Owner Review
+
+| Validation | Acceptance Evidence |
+|---|---|
+| Completeness | Population Count, Source of Authority, Scope Exclusions และ Data Coverage |
+| Classification | Inactivity Signal + HR/Owner Confirmation + Dependencies ต่อ Candidate |
+| Approval | Approved Action, Change Owner, Affected Users และ Recovery Method |
+| Reversible Change | Pre/Post Account Status, Group/App Access และ Business Validation |
+| Exceptions | Risk Owner, Retention Requirements, Reassessment Date และ Open Items |
+
+**Reporting Rule:** นับจำนวน `Candidates`, `Approved`, `Applied`, `Validated` และ `Exception` แยกจากกัน เพื่อไม่ให้ผู้บริหารเข้าใจผิดว่าทุก Candidate สามารถ Cleanup ได้ทันที
+
 ## Assumptions & Boundaries
 
 - ไม่ใช้จำนวนวัน Inactivity เพียงค่าเดียวเป็นเกณฑ์ลบบัญชี และไม่รับประกันจำนวนบัญชีที่ต้อง Cleanup
@@ -100,6 +143,7 @@ stateDiagram-v2
 ## References
 
 - [Microsoft Learn — Detect and investigate inactive user accounts](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/howto-manage-inactive-user-accounts)
+- [Microsoft Graph — signInActivity resource](https://learn.microsoft.com/en-us/graph/api/resources/signinactivity)
 
 ---
 
