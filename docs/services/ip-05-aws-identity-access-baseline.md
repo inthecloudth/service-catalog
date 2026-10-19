@@ -22,6 +22,8 @@
 
 ทบทวน Federation/Identity Center, IAM Role & Permission Set, MFA, SCP, Break-glass และ Access Review พร้อมปรับใช้ Priority Controls ที่อนุมัติ
 
+**Related Integration Service:** หากต้องการเชื่อม Microsoft Entra ID เข้ากับ AWS IAM Identity Center เพื่อใช้งาน SAML SSO, SCIM Provisioning, Conditional Access/MFA และ Group-based Workforce Access ให้ใช้ [IP-21 — AWS Workforce Identity Federation](ip-21-aws-workforce-identity-federation.md) เป็น Workstream แยกจาก IAM Security Baseline
+
 ## Assessment Dimensions
 
 | Workstream | Review & Decisions | Customer Outcome |
