@@ -4,6 +4,10 @@
 
 **Expected Outcome:** ออกแบบและพัฒนา MCP Server เพื่อให้ AI Clients เรียกใช้งาน Enterprise APIs/ข้อมูลที่ได้รับอนุญาต
 
+**Customer Brochure:** [Enterprise MCP Server — Microsoft 365, Azure & AWS, 15 Person-Days, Scope, Tools & Deliverables](brochures/ip-09-enterprise-mcp-server.md)
+
+**Architecture Diagram:** [Black-and-white Enterprise MCP Architecture (SVG)](../assets/diagrams/ip-09-enterprise-mcp-architecture.svg)
+
 ## When to Engage
 
 - ต้องการให้ AI Clients เรียกใช้งาน Enterprise Systems ผ่านเครื่องมือที่กำหนด
@@ -19,6 +23,25 @@
 ## Scope
 
 สร้าง MCP Server, Tools, Authentication/Authorization, Secrets/Logging และ Deployment สำหรับ Use Case ที่ตกลง โดยใช้ Enterprise API หรือ Data Source ที่มีอยู่
+
+**Reference Pilot:** 15 Person-Days, 1 Microsoft 365 Tenant, 1 Azure Subscription, 1 AWS Account, MCP Tools ไม่เกิน 8 รายการ, Primary Hosting 1 Environment และ Read-only Operations เป็นค่าเริ่มต้น โดยมี Prerequisites และ Permissions พร้อมใช้งาน
+
+### Target Enterprise Integrations
+
+| Workload | Example MCP Tools | Backend Permission Boundary |
+|---|---|---|
+| **Exchange Online** | Search Mail, List Calendar Events | Microsoft Graph Delegated/OBO หรือ Workload-scoped App Identity, Exchange Application RBAC เมื่อเกี่ยวข้อง |
+| **Microsoft Teams** | List Authorized Teams/Channels, Approved Message Reads | Graph/Teams API limitations, per-user/team permission, RSC เมื่อเกี่ยวข้อง |
+| **SharePoint Online** | List Documents on Approved Site | Graph, Sites.Selected/Selected Operations และ SharePoint Resource Permissions |
+| **OneDrive for Business** | List User Files/Metadata | Graph Delegated Identity and Drive/File Permissions |
+| **Azure** | Resource Inventory, Azure Monitor Alerts | Azure Resource Manager/SDK and Azure RBAC Resource Scope |
+| **AWS** | EC2 Inventory, CloudWatch Alarm List | AWS SDK with IAM Role Trust and STS Temporary Credentials |
+
+**Read before Write:** ส่ง Mail, Post Teams Messages, Delete/Modify Files, Stop VMs และ Change Cloud Access ไม่เปิดเป็น Default; ต้องเพิ่ม Human Approval, Business Authorization, Idempotency และ Negative Tests ตาม SOW
+
+![High-level enterprise MCP architecture across Microsoft 365, Azure and AWS](../assets/diagrams/ip-09-enterprise-mcp-architecture.svg)
+
+
 
 ## Delivery Scope & Key Decisions
 
@@ -81,6 +104,8 @@ flowchart LR
 ## Deliverables
 
 MCP Server & Selected Tools, **Tool & Authorization Matrix**, Input/Output Contracts, Functional/Negative Security Test Evidence, Deployment Configuration และ Operations Runbook
+
+**Service-specific Example:** [View Microsoft 365 / Azure / AWS Pilot Outcome — 8 Tools, 12 Test Scenarios](examples/enterprise-mcp-m365-azure-aws-outcome.md)
 
 **Example Deliverable:** [View Sample Enterprise MCP Outcome — 3 Tools, 12 Security Tests](examples/enterprise-mcp-server-outcome.md)
 
