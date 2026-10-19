@@ -1,6 +1,6 @@
 # In the Cloud — Service Catalog
 
-Technical service catalog covering 19 reusable packages across Azure, Windows Server, Identity, Microsoft 365, Security and Enterprise AI.
+Technical service catalog covering 21 reusable packages across Azure, Windows Server, Identity, Microsoft 365, Security and Enterprise AI.
 
 **[Explore the catalog](docs/services/index.md)** · **[Start here](docs/index.md)** · **[Contact In the Cloud](https://inthecloud.co.th/th)**
 
