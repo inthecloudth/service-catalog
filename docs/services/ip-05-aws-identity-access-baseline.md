@@ -4,6 +4,8 @@
 
 **Expected Outcome:** ประเมินและยกระดับมาตรฐาน AWS Identity & Access Governance สำหรับบัญชีที่ตกลง
 
+**Customer Brochure:** [AWS Identity & Access Governance and Security Baseline — 10 Capabilities, 6 Person-Days, Deliverables & Sample Report](brochures/ip-05-aws-identity-access-baseline.md)
+
 ## When to Engage
 
 - สิทธิ์ IAM กระจัดกระจายและขาดภาพรวมของ Users, Roles และ Accounts
