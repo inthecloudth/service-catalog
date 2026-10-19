@@ -15,7 +15,7 @@
 | ต้องย้าย Sign-in จาก AD FS / Federation มาใช้ Microsoft Entra Cloud Authentication | [Federation to Cloud Authentication Migration](ip-20-federation-cloud-authentication-migration.md) · [Hybrid Identity Assessment](ip-13-hybrid-identity-assessment-remediation.md) |
 | Microsoft 365 มี Security/Compliance Gaps ที่ยังจัดลำดับไม่ได้ | [Security Baseline](ip-06-m365-security-baseline.md) · [Zero Trust](ip-15-microsoft-365-zero-trust.md) · [Compliance Readiness](ip-07-m365-compliance-readiness.md) |
 | ต้องประเมิน Hardening และข้อยกเว้นที่กระทบการทำงาน | [Windows Server CIS](ip-17-windows-server-cis-benchmark.md) · [Microsoft 365 CIS](ip-18-m365-cis-benchmark.md) |
-| ต้องใช้ AI เชื่อม Enterprise Systems พร้อมควบคุมการเข้าถึง | [Enterprise MCP Server](ip-09-enterprise-mcp-server.md) · [Secure AI Apps & Data](ip-08-secure-ai-apps-data.md) |
+| ต้องการให้ AI/MCP เชื่อม Microsoft 365, Azure และ AWS ภายใต้สิทธิ์และ Audit ที่ตรวจสอบได้ | [Enterprise MCP Server](ip-09-enterprise-mcp-server.md) · [Customer Brochure](brochures/ip-09-enterprise-mcp-server.md) · [Secure AI Apps & Data](ip-08-secure-ai-apps-data.md) |
 | ต้องจัดลำดับ Azure Recommendations หรือขอ Engineering Support | [Azure Advisor Remediation](ip-16-azure-advisor-remediation.md) · [Professional Support](ip-10-professional-support.md) |
 
 ## What Each Service Package Covers
@@ -34,6 +34,7 @@
 - [AWS Identity & Access — Findings & Pilot Outcomes](examples/aws-identity-access-baseline-outcome.md)
 - [AWS–Entra Workforce Federation — SSO, SCIM & Go/No-Go Pilot](examples/aws-entra-workforce-federation-outcome.md)
 - [Enterprise MCP Server — Tool Authorization & Security Tests](examples/enterprise-mcp-server-outcome.md)
+- [Enterprise MCP for Microsoft 365, Azure & AWS — 8 Tools / 12 Pilot Tests](examples/enterprise-mcp-m365-azure-aws-outcome.md)
 - [User Account Hygiene — Candidate Disposition (1,000 Accounts)](examples/user-account-hygiene-assessment-outcome.md)
 - [Federation Migration — Staged Rollout Pilot & Go/No-Go](examples/federation-cloud-auth-migration-outcome.md)
 
