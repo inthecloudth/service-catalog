@@ -160,7 +160,7 @@ flowchart LR
 
 | Account (Fictional) | Identity Source | Example Finding | Recommended Action | Status |
 |---|---|---|---|---|
-| `demo_user_0017` | Hybrid | HR Confirmed Exit, Sign-in Review Complete | Approved Disable in AD Source | Pending Window |
+| `demo_user_0017` | Hybrid | Owner Confirmed and Action Approved | Approved Reversible Disable at AD Source | Pending Window |
 | `demo_user_0054` | AD DS | Retention Exception | Retain + Reassessment Date | Exception |
 | `demo_user_0074` | Hybrid | Application Ownership Unclear | Investigate Dependencies | On Hold |
 | `demo_user_0110` | Entra Cloud-only | Missing Business Owner | Obtain Owner Attestation | Awaiting Review |
