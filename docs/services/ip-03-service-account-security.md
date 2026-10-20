@@ -22,6 +22,8 @@
 
 ครอบคลุม AD DS/Windows Service Accounts และข้อมูลจากเครื่องมือ Identity Security (หากมี) ตามระบบที่ตกลง พร้อม Remediation เฉพาะรายการที่ได้รับอนุมัติ
 
+**Reference Pilot Boundary (6 Person-Days):** Inventory ของบัญชีใน Approved AD/Server Scope; สำหรับการประมาณการ เสนอ **Deep Dependency/Privilege Review สูงสุด 10 Priority Accounts และ Selected Remediation Pilot สูงสุด 2 Accounts** เมื่อมี Owner, Access, Change Approval และ Recovery Plan พร้อม (จำนวนสุดท้ายต้องตกลงใน SOW; ไม่รวม Full Enterprise Remediation)
+
 ## Architecture Mental Model
 
 **System question:** Who is using this identity, and what capabilities can it exercise?
@@ -63,6 +65,18 @@ flowchart LR
 ข้อมูลจาก Platform จะถูกใช้เป็น **Evidence เพิ่มเติม** เพื่อทำ Dependency Mapping, Risk Prioritization และ Remediation Planning ไม่ใช่เกณฑ์สรุปว่า Account ใช้งานไม่ได้หรือลบได้โดยอัตโนมัติ
 
 **Scope Boundary:** MDI เหมาะกับ Visibility, Detection และ Posture Assessment โดยอาจรองรับ Response Actions บางประเภท แต่ไม่ถือว่าให้ Authentication Virtual Fencing เหมือน Silverfort ทั้งสองทางเลือกต้องตรวจ Coverage, Permissions, Licensing, Data Retention และ Identity Owners ก่อนเริ่มงาน
+
+## Technical Readiness & Acceptance Controls
+
+| Control | Requirement / Evidence |
+|---|---|
+| Coverage & Confidence | เก็บ AD/Host/MDI/Windows Log Coverage และ Observation Window; แยก Observed/Inferred/Owner-confirmed; No Activity ไม่ใช่ Unused |
+| gMSA Feasibility | ประเมิน KDS Root Key, AD/Host/App Support, Password Retrieval Principals, SPN/Delegation และ Service Recovery |
+| dMSA Feasibility | ตรวจ Windows Server 2025 DC ที่ Client ค้นพบได้, KDS, Host/Application Compatibility และ Migration Dependencies ก่อนออกแบบ Pilot |
+| Change Validation | Approved Account/Resource/Owner + Before/After Authentication & Application Service Test + Rollback |
+| Handover | Findings แยก Proposed, Approved, Applied, Validated, Exception และ Next-wave Risk Owner |
+
+**Customer-facing Architecture and Outcomes:** [ดู Brochure พร้อม Mermaid ขาว–ดำ](brochures/ip-03-service-account-security.md)
 
 ## Standard Delivery
 
