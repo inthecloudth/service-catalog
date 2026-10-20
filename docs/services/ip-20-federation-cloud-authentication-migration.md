@@ -4,6 +4,8 @@
 
 **Expected Outcome:** ย้าย Microsoft Entra Sign-in ของ Domain ที่ใช้ AD FS หรือ Federation Provider อื่นไปสู่ Cloud Authentication อย่างมีขั้นตอน โดยเลือก Password Hash Synchronization (PHS) หรือ Pass-through Authentication (PTA) ให้เหมาะกับองค์กร ทดสอบ User/Device/Application Sign-in ก่อน Cutover และเตรียมวิธีกลับสู่ Federation ที่ผ่านการทบทวน
 
+**Customer Brochure:** [Federation to Cloud Authentication Migration — 10 Capabilities, 10 Person-Days, Staged Rollout & Go/No-Go](brochures/ip-20-federation-cloud-authentication-migration.md)
+
 ## When to Engage
 
 - ใช้ AD FS หรือ Third-party Federation เพื่อ Sign in Microsoft 365 / Microsoft Entra ID และต้องการลด Operational Dependency ของระบบ Federation
