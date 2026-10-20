@@ -72,4 +72,4 @@ Current Federation Baseline, Authentication Method Decision Record, Application/
 
 *Fictional evidence only; no production domain was converted.*
 
-[Back to Federation Migration](../ip-20-federation-cloud-authentication-migration.md) · [Contact](../../contact.md)
+[Back to Federation Migration](../ip-20-federation-cloud-authentication-migration.md) · [Customer Brochure](../brochures/ip-20-federation-cloud-authentication-migration.md) · [Contact](../../contact.md)
