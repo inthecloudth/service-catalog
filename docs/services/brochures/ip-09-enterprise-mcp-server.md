@@ -138,6 +138,37 @@ flowchart TB
 
 ชื่อและจำนวน Tools จริงขึ้นกับ Provider MCP Tool Catalog และ Approved API Contracts; Work IQ อาจใช้ Generic Tools/Resource Paths แทนชื่อ Tool ตาม Use Case ดังนั้นตารางนี้ไม่ใช่รายการ Tool Names ที่ยืนยันว่ามีอยู่ในผลิตภัณฑ์ทุกตัว
 
+### Example Business Use Cases — What Can AI Do?
+
+ตัวอย่างด้านล่างแสดงสิ่งที่ผู้ใช้สามารถ **ขอให้ AI Agent ทำผ่าน Approved MCP Tools** เพื่อให้เห็นภาพการใช้งานจริง โดยผลลัพธ์ขึ้นกับ AI Client, สิทธิ์ของผู้ใช้, ข้อมูลที่ระบบปลายทางเปิดให้เรียก และ Tool Catalog ที่ตกลงใน Pilot
+
+**A. Initial Pilot — Read-only Operations (within Microsoft 365 Email, Azure & AWS)**
+
+| User Request (ตัวอย่างคำถาม) | Example Outcome | Required Capability |
+|---|---|---|
+| **"ค้นหาอีเมลจากผู้ส่งรายนี้ในช่วง 7 วันที่ผ่านมา"** | แสดงรายการอีเมลที่ผู้ใช้มีสิทธิ์อ่าน พร้อมผู้ส่ง หัวข้อ และเวลา | Microsoft 365: Search Authorized Email |
+| **"ช่วยสรุปอีเมลเกี่ยวกับเหตุการณ์ระบบล่มที่ฉันเข้าถึงได้"** | AI สรุปเนื้อหาอีเมลที่ได้รับอนุญาตและระบุข้อความต้นทางที่ตรวจสอบกลับได้ เมื่อ Client รองรับ | Microsoft 365: Search + Read Authorized Email; AI Summarization |
+| **"แสดง Azure VM ที่หยุดทำงานใน Subscription ที่กำหนด"** | รายการ VM และ Power State ตาม Azure Resource Scope ที่อนุญาต | Azure: List Resources / Get VM State |
+| **"มี Azure Monitor Alerts อะไรที่ต้องตรวจสอบบ้าง"** | รายการ Alerts ที่มีอยู่ตาม Monitoring Configuration, Severity และเวลาที่ร้องขอ | Azure: Query Azure Monitor Alerts |
+| **"แสดง EC2 Instances ที่มีสถานะ stopped ใน AWS Account ที่อนุมัติ"** | รายการ EC2, Region และ Instance State จาก Inventory ที่ได้รับสิทธิ์ | AWS: List EC2 Instances |
+| **"ตอนนี้ AWS มี CloudWatch Alarms รายการไหนอยู่ใน ALARM State"** | รายการ Alarms ที่กำลังแจ้งเตือน พร้อม Resource/Metric ที่เกี่ยวข้องเมื่อมีข้อมูล | AWS: Query CloudWatch Alarms |
+| **"สรุปจำนวน Azure VM และ AWS EC2 ที่กำลังรันอยู่"** | AI รวมข้อมูล Inventory/State จากทั้งสอง Cloud เป็นสรุปเดียว โดยไม่เปลี่ยนแปลง Resources | Azure + AWS: Approved Inventory/State Tools |
+
+**ข้อจำกัด:** VM Power State หรือ EC2 Instance State ไม่ใช่การยืนยัน Guest OS / Application Health; การตรวจสอบปัญหาเชิงลึกต้องมี Metrics, Logs หรือ Custom Tools ที่เกี่ยวข้องเพิ่ม การสรุปด้วย AI เป็นความสามารถของ **AI Agent/LLM** ที่เรียก MCP Tools ไม่ใช่ความสามารถของ Gateway เอง
+
+**B. Future Extension — Optional Custom Tools (not included unless selected in SOW)**
+
+| Example User Request | Custom MCP Tool / Integration | Example Outcome |
+|---|---|---|
+| **"ตรวจสอบ VM ว่าผ่าน Security Baseline หรือไม่"** | `check_vm_compliance` → Azure APIs + Approved Baseline/CMDB | Compliance Findings พร้อมรายการ Configuration ที่ต้องตรวจสอบ |
+| **"สรุป AWS Cost แยกตาม Business Unit"** | `get_aws_cost_summary` → AWS Cost Explorer + Approved Tags | ค่าใช้จ่ายตามช่วงเวลาและ Cost Allocation ที่มีข้อมูลรองรับ |
+| **"สรุป Health ของทั้ง Azure และ AWS ตามระดับ Business Criticality"** | `get_enterprise_health` → Azure Monitor + CloudWatch + Approved Criticality Mapping | Consolidated Health View และรายการที่ควรตรวจสอบก่อน |
+| **"ค้นหา Incident Ticket ที่เกี่ยวข้องกับ Alert นี้"** | `search_internal_case` → Approved ITSM API | Related Cases / Current Case Status ตามสิทธิ์ |
+
+**Implementation note:** Custom Tools สามารถเขียนด้วย **C# / ASP.NET Core** และ Expose REST Operations ผ่าน **Azure API Management (REST-to-MCP)** หรือพัฒนาเป็น Native MCP Server ได้ โดยไม่แก้ไข Managed MCP Servers ที่มีอยู่ ข้อความข้างต้นเป็น **Example Use Cases ไม่ใช่การรับประกันว่าทุก Operation พร้อมใช้งานโดยไม่ต้อง Configuration หรือ Development เพิ่มเติม**
+
+**Pilot acceptance examples:** ยืนยันว่า Authorized User เรียก Tools ที่ตกลงได้, Unauthorized User/Resource ถูกปฏิเสธ, Cross-cloud Summary ใช้เฉพาะข้อมูลที่ได้รับอนุญาต, No Write Actions ถูกเรียก และมี Audit Evidence สำหรับ Tool Calls โดยการพัฒนา AI Agent/Chat UI ใหม่ไม่รวมอยู่ใน Reference Pilot
+
 ## 5. Security, Reliability & Operations
 
 | Control | Implementation requirement |
