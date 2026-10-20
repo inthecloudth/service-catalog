@@ -59,11 +59,11 @@
 ??? abstract "Identity & Security · 6 services"
 
     - **IP-03** — [Service Account Security Assessment & Remediation](ip-03-service-account-security.md)
-    - **AR-ID-UAH (IP-19)** — [User Account Hygiene Assessment & Remediation](ip-19-user-account-hygiene.md)
+    - **AR-ID-UAH (IP-19)** — [User Account Hygiene Assessment & Remediation](ip-19-user-account-hygiene.md) · [Customer Brochure](brochures/ip-19-user-account-hygiene.md)
     - **IP-05** — [AWS Identity & Access Baseline](ip-05-aws-identity-access-baseline.md)
     - **IP-21** — [AWS Workforce Identity Federation with Microsoft Entra ID](ip-21-aws-workforce-identity-federation.md)
     - **IP-13** — [Hybrid Identity Assessment & Remediation](ip-13-hybrid-identity-assessment-remediation.md)
-    - **IM-ID-FCA (IP-20)** — [Federation to Cloud Authentication Migration](ip-20-federation-cloud-authentication-migration.md)
+    - **IM-ID-FCA (IP-20)** — [Federation to Cloud Authentication Migration](ip-20-federation-cloud-authentication-migration.md) · [Customer Brochure](brochures/ip-20-federation-cloud-authentication-migration.md)
 
 ??? abstract "Microsoft 365 & Zero Trust · 5 services"
 
