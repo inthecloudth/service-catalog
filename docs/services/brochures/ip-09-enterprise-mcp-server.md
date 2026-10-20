@@ -28,38 +28,61 @@ Custom Tools **ไม่จำกัดเฉพาะ Microsoft 365, Azure ห�
 
 **Product selection เป็น Reference Architecture ไม่ใช่คำรับรองว่า Managed MCP ทุกตัว Proxy ผ่าน APIM ได้ทันที** ต้องทดสอบ MCP Protocol/Transport, OAuth/OBO, SigV4, User Identity Propagation, Tool Discovery, Network Access และ Licensing/Quota ก่อนยืนยัน Solution Design
 
-### Architecture — Managed MCP + Custom Extensions
+### Architecture — Managed MCP + Custom Extensions (Black & White Mermaid)
 
-    Enterprise AI Agent / MCP Client
-                    |
-                    | MCP Protocol
-                    v
-        Azure API Management (Gateway)
-          |          |           |
-          |          |           +-------------------------------+
-          |          |                                           |
-          v          v                                           v
-       Work IQ     Azure MCP                                  AWS MCP
-       remote      Server                                     managed
-       (M365)      (hosted)                                   (AWS)
-          |
-          |               Additional Custom MCP Endpoints
-          |                         |
-          |             +-----------+------------+
-          |             |                        |
-          |             v                        v
-          |       APIM REST-to-MCP           Native MCP Server
-          |             |                        |
-          |             v                        v
-          |       Custom REST API          Custom MCP Tools
-          |        C# / .NET               C# / TS / Python
-          |             |                        |
-          +-------------+------------------------+
-                        |
-              Approved Backend APIs
-           (Graph / Azure / AWS / others)
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#111111", "primaryBorderColor": "#111111", "lineColor": "#111111", "secondaryColor": "#f5f5f5", "tertiaryColor": "#ffffff", "fontFamily": "Arial"}}}%%
+flowchart TB
+    USER["Enterprise AI Agent<br/>MCP Client"]
+    APIM["Azure API Management<br/>MCP Gateway"]
+    ID["Microsoft Entra ID<br/>Identity & Access"]
+    LOG["Azure Monitor<br/>Audit & Operations"]
 
-*Conceptual topology:* Gateway อาจเผยแพร่ **หลาย MCP Endpoints**; ไม่ได้หมายความว่า APIM จะรวมทุก Tool จากทุก Server เป็น Endpoint เดียวโดยอัตโนมัติ และ Managed Server บางตัวอาจต้องเชื่อมตรงกับ Agent หาก Proxy/Identity Flow ไม่ผ่าน Compatibility Test
+    subgraph STANDARD["Managed / Official MCP Integrations"]
+        direction LR
+        M365["Microsoft 365<br/>Work IQ MCP (Managed)"]
+        AZ["Azure MCP Server<br/>(Official, hosted)"]
+        AWS["AWS MCP Server<br/>(Managed)"]
+    end
+
+    subgraph EXT["Custom Extensions — Optional"]
+        direction LR
+        REST["Custom REST API<br/>C# / ASP.NET Core"]
+        NATIVE["Native MCP Server<br/>C# / TypeScript / Python"]
+    end
+
+    GRAPH["Exchange Online<br/>Authorized Email"]
+    ARM["Azure Resource APIs<br/>VM / Monitor / Resources"]
+    AWSAPI["AWS Service APIs<br/>EC2 / CloudWatch"]
+    OTHER["Approved Backend APIs<br/>Enterprise Systems"]
+
+    USER --> APIM
+    ID -. "Authentication / Policy" .-> APIM
+    APIM -. "Audit / Metrics" .-> LOG
+
+    APIM -->|"Remote MCP (validate compatibility)"| M365
+    APIM -->|"Remote MCP"| AZ
+    APIM -->|"Remote MCP (validate compatibility)"| AWS
+    APIM -->|"REST-to-MCP in APIM"| REST
+    APIM -->|"Remote MCP"| NATIVE
+
+    M365 --> GRAPH
+    AZ --> ARM
+    AWS --> AWSAPI
+    REST --> OTHER
+    NATIVE --> OTHER
+
+    classDef default fill:#ffffff,color:#111111,stroke:#333333,stroke-width:1.2px;
+    classDef emphasis fill:#f2f2f2,color:#111111,stroke:#111111,stroke-width:2px;
+    classDef support fill:#ffffff,color:#111111,stroke:#666666,stroke-dasharray:4 3;
+    class APIM emphasis;
+    class ID,LOG support;
+    style STANDARD fill:#ffffff,color:#111111,stroke:#888888,stroke-width:1px
+    style EXT fill:#ffffff,color:#111111,stroke:#888888,stroke-width:1px
+    linkStyle default stroke:#111111,stroke-width:1.3px;
+```
+
+**Diagram notes:** แสดง Logical Integration เท่านั้น — ในเส้นทาง **REST-to-MCP** นั้น APIM เป็นผู้ Expose Tool จาก REST API โดยตรง ไม่ใช่การเพิ่ม MCP Server อีกตัว และ APIM อาจแยก MCP Endpoint ตาม Integration โดยไม่ได้รวม Tools ทั้งหมดเป็น Endpoint เดียวโดยอัตโนมัติ. เส้นทาง **Work IQ และ AWS Managed MCP ผ่าน APIM** ต้องทดสอบ OAuth/Identity Propagation, Protocol Compatibility และ Backend Authorization ก่อนใช้ Production
 
 **[View trust-boundary architecture diagram (conceptual)](../../assets/diagrams/ip-09-enterprise-mcp-architecture.svg)** — ภาพเดิมอธิบาย Identity/Authorization/Backend Boundary; แผนภาพด้านบนเป็นแนวทาง Product Deployment สำหรับโครงการนี้
 
