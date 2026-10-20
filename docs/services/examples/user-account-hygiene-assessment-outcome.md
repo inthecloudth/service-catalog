@@ -83,4 +83,4 @@ flowchart LR
 
 *ทุกบัญชี ชื่อ และ Outcome เป็นข้อมูลสมมติ ไม่มีบัญชีจริงถูกเปลี่ยนแปลง*
 
-[Back to User Account Hygiene](../ip-19-user-account-hygiene.md) · [Contact](../../contact.md)
+[Back to User Account Hygiene](../ip-19-user-account-hygiene.md) · [Customer Brochure](../brochures/ip-19-user-account-hygiene.md) · [Contact](../../contact.md)
