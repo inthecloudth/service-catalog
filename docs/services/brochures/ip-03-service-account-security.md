@@ -3,7 +3,7 @@
 > **IP-03 | Customer Service Brochure**  
 > **Active Directory & Hybrid Identity Security**
 
-**Reference Duration: 6 Person-Days** — Assessment + Selected Remediation / Protection Pilot (ขึ้นอยู่กับขนาด Environment และข้อมูลที่มีอยู่; ยืนยันขอบเขตและระยะเวลาใน Statement of Work)
+**Reference Duration: 6 Person-Days** — Scoped Assessment + Selected Remediation / Protection Pilot. จำนวน Priority Accounts และ Approved Pilot Changes ให้กำหนดตาม Reference Sizing ใน SOW
 
 ## 1. About This Service
 
@@ -56,7 +56,66 @@ Silverfort หรือ MDI ช่วยค้นหา วิเคราะห
 | **Managed Service Accounts** | ประเมิน gMSA/dMSA Compatibility และจัดทำ Migration/Pilot Plan สำหรับ Application ที่รองรับ |
 | **Validation & Recovery** | มี Change Approval, Functional Test, Before/After Evidence และ Rollback Plan ก่อนขยายผล |
 
-### D. Implementation Agenda
+### D. Architecture — Assessment to Remediation (Black & White)
+
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#111111", "primaryBorderColor": "#111111", "lineColor": "#111111", "secondaryColor": "#f5f5f5", "tertiaryColor": "#ffffff"}}}%%
+flowchart LR
+    AD["AD DS<br/>Accounts / Privileges"]
+    HOST["Services / Tasks / IIS<br/>Host Configuration"]
+    LOG["MDI / Security Logs<br/>Authentication Evidence"]
+    INV["Inventory + Coverage Matrix<br/>Observed / Inferred / Confirmed"]
+    RISK["Owner + Dependency<br/>Risk Assessment"]
+    GATE{"Approved Change?<br/>Rollback Ready?"}
+    PILOT["Selected Remediation Pilot<br/>Least Privilege / Logon / gMSA"]
+    VERIFY["Service + Authentication Validation<br/>Before / After Evidence"]
+    HOLD["Hold / Exception"]
+    ROLLBACK["Rollback + Reassess"]
+    REPORT["Findings + Handover"]
+    AD --> INV
+    HOST --> INV
+    LOG --> INV
+    INV --> RISK --> GATE
+    GATE -->|Yes| PILOT --> VERIFY
+    GATE -->|No| HOLD --> REPORT
+    VERIFY -->|Pass| REPORT
+    VERIFY -->|Fail| ROLLBACK --> RISK
+    classDef default fill:#ffffff,color:#111111,stroke:#333333,stroke-width:1.2px;
+    classDef focus fill:#f2f2f2,color:#111111,stroke:#111111,stroke-width:2px;
+    class GATE,PILOT focus;
+    linkStyle default stroke:#111111,stroke-width:1.3px;
+```
+
+*Diagram แสดง Assessment Evidence และ Change Control ไม่ใช่การยืนยันว่าระบบใดติดตั้ง MDI แล้ว*
+
+### E. Reference Scope, Prerequisites & Acceptance
+
+**Reference Pilot 6 Person-Days:** สำรวจบัญชีใน AD/Server Scope ที่ตกลง และเสนอ **Deep Dependency & Privilege Review สูงสุด 10 Priority Accounts** พร้อม **Selected Remediation Pilot สูงสุด 2 Accounts** เมื่อมี Access, Owner, Maintenance Window และ Recovery Plan พร้อม จำนวนนี้เป็น **Proposed Estimation Boundary** ซึ่งต้องตกลงจริงใน SOW; ไม่รวม Remediate ทุก Account โดยอัตโนมัติ
+
+| Area | Engineering Scope | Expected Evidence |
+|---|---|---|
+| Discovery Coverage | บันทึก Domain/OU/Hosts, MDI/Log Coverage, Observation Window และ Evidence Gaps | Inventory + Coverage Matrix; ไม่พบ Activity ไม่เท่ากับ Unused |
+| Deep Dependency Mapping | ตรวจ Windows Services, Tasks, IIS, SPN, Source/Destination และยืนยันกับ Owner | Observed / Inferred / Owner-confirmed Evidence และ Account-to-Consumer Mapping |
+| gMSA Readiness | ตรวจ KDS Root Key, AD/Host/App Support, Allowed Password Retrieval Principals, SPN/Permissions | Compatibility / Not-ready Decision + Pilot Candidate |
+| dMSA Readiness (Windows Server 2025) | ตรวจ Windows Server 2025 DC ที่ Client ติดต่อได้, KDS, Host/Service Compatibility และ Migration Dependencies | Feasibility / Exception; Full Migration ไม่รวมโดยอัตโนมัติ |
+| Selected Remediation | จำกัด Logon, ลด Privilege หรือ Migration Pilot เฉพาะที่ Approve | Change Record, Before/After Validation, Rollback Evidence |
+| Operational Handover | แยก Proposed / Approved / Applied / Validated / Pending | Findings, Owners, Open Risks และ Next-wave Roadmap |
+
+**Example Customer Outcomes (Illustrative):**
+
+| Scenario | Expected Outcome |
+|---|---|
+| Service Account ไม่มี Owner | Verified Owner หรือ Open Finding พร้อม Evidence Gaps |
+| Account ใช้ Privilege เกินจำเป็น | Least-Privilege Decision และ Applied/Validated Changes เฉพาะรายการที่อนุมัติ |
+| Authentication มาจาก Unexpected Source | Source/Destination Investigation พร้อม Proposed Restriction |
+| Traditional Account ใช้ Static Password | gMSA/dMSA Feasibility; Selected Safe Pilot เฉพาะที่รองรับ |
+| Log ไม่ครอบคลุม Scheduled Monthly Jobs | Monitoring Gap และ Observation Plan; ไม่สรุปว่า Unused |
+
+**Acceptance Gates:** (1) Inventory พร้อม Data Coverage, (2) Priority Findings พร้อม Owner/Dependency Status, (3) Approved Pilot Changes พร้อม Functional Test + Rollback และ (4) Open Risks/Exceptions มี Owner. หากยังไม่ทดสอบ ให้แสดง Pending ไม่ใช่ Validated
+
+### F. Implementation Agenda
+
+
 
 | Phase | Activities | Effort |
 |---|---|---:|
@@ -172,6 +231,8 @@ Silverfort **ไม่ได้แทนการทำ Native AD Remediation** 
 - การไม่พบ Authentication ในช่วงเวลาที่มีข้อมูล **ไม่ได้หมายความว่าบัญชีเลิกใช้งานแล้ว** ต้องตรวจสอบ Periodic Jobs และ Application Dependencies
 - การเปลี่ยน Production Credentials/Permissions/Enforcement ต้องผ่าน Change Approval และมี Recovery Plan
 - ไม่รวม Full Enterprise-Wide Remediation, Application Code Changes หรือ Managed Security Monitoring แบบ 24×7 ใน Reference Package
+- Reference Sizing เป็นข้อเสนอสำหรับ SOW: Deep Review ไม่เกิน 10 Priority Accounts และ Remediation Pilot ไม่เกิน 2 Accounts โดยต้องมี Prerequisites และ Change Approval
+- gMSA/dMSA Migration ขึ้นกับ DC/Host/Application Readiness; dMSA ต้องมี Windows Server 2025 DC ที่ Client ค้นพบได้ และ Complex Migration/Observation Window เป็น Scope เพิ่ม
 - Silverfort Virtual Fencing และ Automated Smart Policies ใช้งานได้เมื่อมี Platform, Integration, License และ Protocol Coverage ที่รองรับ
 
 **[ดูหน้า Technical Service IP-03](../ip-03-service-account-security.md)** · **[ติดต่อทีม In The Cloud](../../contact.md)**
@@ -179,5 +240,7 @@ Silverfort **ไม่ได้แทนการทำ Native AD Remediation** 
 ### References
 
 - [Microsoft — Defender for Identity Service Account Discovery](https://learn.microsoft.com/en-us/defender-for-identity/service-account-discovery)
+- [Microsoft — Group Managed Service Accounts](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/group-managed-service-accounts/group-managed-service-accounts/manage-group-managed-service-accounts)
+- [Microsoft — Delegated Managed Service Accounts FAQ](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/delegated-managed-service-accounts/delegated-managed-service-accounts-faq)
 - [Microsoft — Authentication Policies and Authentication Policy Silos](https://learn.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos)
 - [Silverfort — Service Account Security](https://www.silverfort.com/use-cases/service-account-security/)
