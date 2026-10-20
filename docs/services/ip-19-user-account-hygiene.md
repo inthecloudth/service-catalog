@@ -4,6 +4,8 @@
 
 **Expected Outcome:** ระบุบัญชีผู้ใช้งานที่ไม่ได้ใช้งาน บัญชีที่ไม่มีเจ้าของ และสิทธิ์ที่ยังคงอยู่โดยไม่จำเป็นใน Active Directory และ Microsoft Entra ID แล้วจัดการเฉพาะรายการที่ผ่านการตรวจสอบและอนุมัติ โดยลดความเสี่ยงที่จะกระทบผู้ใช้งานจริง
 
+**Customer Brochure:** [User Account Hygiene — 10 Capabilities, 6 Person-Days, Deliverables & Sample Report](brochures/ip-19-user-account-hygiene.md)
+
 ## When to Engage
 
 - มี User Accounts สะสมจำนวนมาก แต่ไม่ทราบว่าใครยังใช้งานหรือเป็นเจ้าของบัญชี
