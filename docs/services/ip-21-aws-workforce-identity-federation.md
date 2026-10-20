@@ -71,6 +71,21 @@ flowchart TD
 - **Emergency Access:** AWS แนะนำ Emergency Access ที่อาจใช้ IdP เดิมเมื่อ Identity Center ขัดข้อง; หาก Entra ID ขัดข้องด้วย ต้องมี Independent Route ต่างหาก
 - **Secrets/Credentials:** ห้ามบันทึก SCIM Bearer Token, Certificates' Private Keys หรือ Login Secrets ใน GitHub/Report
 
+## Long-term Operations & Acceptance
+
+| Control | Required Evidence |
+|---|---|
+| Identity Source Migration | Pre-change User/Group/Assignment Inventory, Existing Resource-policy/Role Dependencies, Change Impact by Source Type, Go/No-Go & Recovery Path |
+| SCIM Token Lifecycle | AWS SCIM Token อายุ **1 ปี**; Rotation Owner/Calendar, Storage, AWS Health/Console Reminders และ Provisioning-Failure Monitoring |
+| Provisioning Drift | Entra Assigned Users/Groups เทียบกับ Identity Center Identity Store และ AWS Permission Set Assignments; Log Exceptions และ Reconciliation Owner |
+| SAML Trust | Signing Certificate/Metadata Expiry, Rotation Owner และ Test/Restore Procedure |
+| User Lifecycle | Joiner/Mover/Leaver + CA/MFA + AWS Allowed/Denied; การ Deprovision ไม่ตัด AWS Role Session เดิมทันที |
+| Emergency Access | Independent Recovery Path ที่เหมาะกับ IdP Outage และ IAM Identity Center Outage พร้อม Validation/Outstanding Risk |
+
+**Reference Pilot Limit:** ยืนยัน Pilot Users/Groups/AWS Accounts และ Identity Source ล่วงหน้า; ไม่รวม Production Identity Source Migration/Rebuild หรือ Full Enterprise Rollout โดยอัตโนมัติ
+
+**Customer-facing Architecture and Outcomes:** [ดู Brochure พร้อม Mermaid ขาว–ดำ](brochures/ip-21-aws-workforce-identity-federation.md)
+
 ## Deliverables
 
 Current-State & Readiness Assessment, Federation/Provisioning Architecture, Conditional Access & AWS Permission Set Matrix, Approved Configuration Register, Pilot Validation & Go/No-Go Evidence และ Identity Operations/Recovery Runbook
