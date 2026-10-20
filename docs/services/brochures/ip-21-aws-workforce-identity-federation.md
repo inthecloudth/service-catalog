@@ -59,7 +59,73 @@
 
 กลุ่มและ Permission Sets เป็น **ตัวอย่างการออกแบบเท่านั้น** ไม่ใช่ Configuration ที่มีอยู่ในระบบลูกค้าจริง ต้องตรวจ Policy Scope และ Resource-Level Access แยกใน IP-05 เมื่อจำเป็น
 
-### D. Implementation Agenda
+### D. Architecture — Authentication, Provisioning and AWS Authorization
+
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#111111", "primaryBorderColor": "#111111", "lineColor": "#111111", "secondaryColor": "#f5f5f5", "tertiaryColor": "#ffffff"}}}%%
+flowchart LR
+    AD["On-premises AD DS<br/>Hybrid Users / Groups"]
+    CLOUD["Entra Cloud-only Users"]
+    ENTRA["Microsoft Entra ID<br/>Corporate IdP"]
+    USER["User / AWS CLI"]
+    PORTAL["AWS IAM Identity Center<br/>Access Portal"]
+    STORE["Identity Center Store<br/>SCIM Users / Groups"]
+    MAP["Permission Sets<br/>Group-to-Account Assignment"]
+    AWS["AWS Accounts<br/>IAM Role Sessions"]
+    LOG["Sign-in + Provisioning Logs<br/>CloudTrail / Operations"]
+    EMERG["Independent Emergency Access<br/>Validated Recovery"]
+    AD -->|Existing Directory Sync| ENTRA
+    CLOUD --> ENTRA
+    USER --> PORTAL
+    PORTAL -->|SAML Federation| ENTRA
+    ENTRA -->|CA / MFA Result| PORTAL
+    ENTRA -->|SCIM Provisioning| STORE
+    STORE --> MAP
+    PORTAL --> MAP
+    MAP -->|Temporary Role Session| AWS
+    ENTRA -.-> LOG
+    STORE -.-> LOG
+    AWS -.-> LOG
+    EMERG -.-> AWS
+    classDef default fill:#ffffff,color:#111111,stroke:#333333,stroke-width:1.2px;
+    classDef focus fill:#f2f2f2,color:#111111,stroke:#111111,stroke-width:2px;
+    classDef dashed fill:#ffffff,color:#111111,stroke:#666666,stroke-dasharray:4 3;
+    class ENTRA,PORTAL,MAP focus;
+    class EMERG,LOG dashed;
+    linkStyle default stroke:#111111,stroke-width:1.2px;
+```
+
+**Architecture Mental Model:** SAML + Entra Conditional Access/MFA ใช้สำหรับ **Workforce Authentication**; SCIM ใช้ส่ง **User/Group Lifecycle**; IAM Identity Center Permission Sets + AWS IAM เป็นผู้กำหนด **AWS Authorization**. Emergency Access ต้องประเมินเส้นทางที่ไม่พึ่ง IdP เดิมในกรณี Entra Outage
+
+### E. Production Readiness, Recovery & Operations Decisions
+
+| Decision / Control | Required Assessment & Configuration | Acceptance / Operational Evidence |
+|---|---|---|
+| **Identity Source Change: Go/No-Go** | ตรวจ Source ปัจจุบัน, Users/Groups, Permission Sets/Assignments, Resource Policies ที่อ้าง Role ARN (รวม KMS/EKS), Sign-in Dependencies และผลกระทบตาม Source เดิม/ใหม่ | Written Impact Decision + Pre-change Export/Inventory, Recovery Plan และ Owner Approval **ก่อน Cutover** |
+| **SCIM Token Lifecycle** | ระบุ Token Owner, Secret Storage, Expiration Date, Rotation Calendar และ Notification/Monitoring; **AWS SCIM Token มีอายุ 1 ปี** | Owner/Runbook + Rotation Procedure; ตรวจ AWS Health/Console Reminder และ Provisioning Error |
+| **Provisioning Drift** | เทียบ Assigned Entra Users/Groups/Membership กับ IAM Identity Center Identity Store และ Account Assignments; ตรวจ Failures, Delay, Missing Users/Groups, Provisioning Quarantine | Reconciliation / Exception Log พร้อม Owner และ Correction Path |
+| **SAML Certificate Lifecycle** | ระบุ Signing Certificate Expiry, Metadata Owner, Test Plan สำหรับการเปลี่ยน Certificate และ Rollback | Rotation Ownership + Maintenance/Recovery Guide |
+| **Joiner / Mover / Leaver** | ทดสอบ Provisioning, Membership Change และ Account Access; ระบุ Sync Latency รวมถึง PIM Group Activation เมื่อใช้ | Successful/Denied Sign-in + SCIM Update/Deactivate Evidence + Account Assignment Review |
+| **Existing AWS Sessions** | ทดสอบหรือระบุ Limit ของ AWS Access Portal / CLI / IAM Role Sessions; การ Remove User/Group **ไม่เท่ากับการหมดอายุ Session ที่ออกไปแล้วทันที** | Session Duration & Revocation / Incident Response Procedure |
+| **Privileged & Emergency Access** | เลือก Scoped Admin Permission Sets, ตรวจ Entra CA/MFA Coverage, ตรวจ Recovery เมื่อ IAM Identity Center หรือ Entra ใช้งานไม่ได้ | Negative Access Tests + Independent Emergency Route Evidence / Explicit Open Risk |
+
+**Migration nuance:** การเปลี่ยน Identity Source **ไม่ได้ลบ Assignments ทุกกรณี**; ผลขึ้นกับ Source เดิม/ใหม่และ Identity Matching. โดยเฉพาะการเปลี่ยน **ระหว่าง Active Directory กับ External IdP** อาจลบ Users/Groups/Assignments และ Permission-Set Role Dependencies; ถ้ายังไม่มี Inventory/Recovery Approval ให้ **Hold Production Cutover**. งาน Reference 6 Person-Days ครอบคลุม Pilot Integration และ Design/Validation ไม่รวม Full Rebuild/Migration ของ Production Source
+
+**Example Customer Outcomes (Illustrative):**
+
+| Business Request | Expected Technical Outcome |
+|---|---|
+| "พนักงาน Sign in AWS ด้วย Corporate Account เดิม" | SAML SSO ผ่าน Entra ID พร้อม Tested MFA/CA สำหรับ Pilot Users |
+| "เพิ่มพนักงานเข้ากลุ่ม AWS Operator" | Entra Group → SCIM Membership → IAM Identity Center Account/Permission Set Assignment ที่ได้รับอนุมัติ |
+| "ลบสิทธิ์ AWS เมื่อพนักงานออก" | SCIM Update/Deactivate Verified; บันทึกข้อจำกัดของ Active Sessions และ Incident Revocation |
+| "ป้องกัน Group Sync หยุดทำงาน" | SCIM Token Rotation + Provisioning Failure/Drift Monitoring Runbook |
+| "เกิด Entra Sign-in Outage" | Emergency Access Decision พร้อม Recovery Test หรือ Unresolved Risk ก่อน Rollout |
+
+**Pilot Acceptance Gates:** (1) Identity Source Impact + Owner/Recovery Approval, (2) SSO/CA-MFA Positive & Negative Tests, (3) SCIM User/Group Lifecycle + Drift/Failure Detection, (4) AWS Permission-Set Allowed/Denied Actions, (5) Token/Certificate Owners และ Emergency Procedure. หาก Gate สำคัญไม่ผ่าน ให้ระบุ **Hold / Pending** ไม่ใช่ Production-ready
+
+### F. Implementation Agenda
+
+
 
 | Phase | Activities | Effort |
 |---|---|---:|
@@ -70,7 +136,7 @@
 | **5. Documentation & Handover** | สรุป Test Evidence, Operational Runbook, Risks, Recovery Plan และ Rollout Roadmap | 1 วัน |
 | **Total** | | **6 Person-Days** |
 
-**Duration Condition:** Reference 6 Person-Days เหมาะกับการเชื่อมต่อ/Pilot ที่มี IAM Identity Center และ Entra พร้อมใช้งานและไม่มี Production Identity Source Migration ที่ซับซ้อน หากเปลี่ยน Identity Source ของ IAM Identity Center ที่ให้บริการอยู่แล้ว หรือจำเป็นต้อง Recreate User/Group Assignments/Permission-Set Roles ต้องทำ Migration Assessment, Change/Recovery Plan และแยกระยะเวลา Implementation เพิ่มเติมก่อนดำเนินการ
+**Duration Condition:** Reference 6 Person-Days เหมาะกับการเชื่อมต่อ/Pilot ที่มี IAM Identity Center และ Entra พร้อมใช้งาน, เลือก Pilot Users/Groups และ AWS Account(s) ใน SOW และไม่มี Production Identity Source Migration ที่ซับซ้อน หากเปลี่ยน Identity Source ของ IAM Identity Center ที่ให้บริการอยู่แล้ว หรือจำเป็นต้อง Recreate User/Group Assignments/Permission-Set Roles ต้องทำ Migration Assessment, Change/Recovery Plan และแยกระยะเวลา Implementation เพิ่มเติมก่อนดำเนินการ
 
 ## 4. Deliverables
 
@@ -153,6 +219,7 @@
 - งานนี้เน้น **Workforce User Federation** ไม่ครอบคลุม AWS Workload Roles, IAM Policy Assessment ทั้งองค์กร หรือ Application-specific Federation ทั้งหมด ซึ่งเป็น Scope ของ IP-05/Workload Security ที่เกี่ยวข้อง
 - **ไม่มีการเปลี่ยน Entra Connect/Cloud Sync, On-prem AD Forest หรือ Microsoft 365 Sign-in Method** โดยอัตโนมัติ; จะทบทวนเฉพาะ Dependencies ที่จำเป็นสำหรับ AWS Integration
 - IAM Identity Center มี **หนึ่ง Identity Source ต่อ Organization**; การเปลี่ยน Identity Source ที่ใช้ Production อยู่แล้วอาจกระทบ User/Group Assignments และ Permission-Set Roles ต้องผ่าน Impact Assessment/Change Approval แยก
+- ต้องตรวจ SCIM Token Expiry (1 ปี), Rotation Owner, Provisioning Errors/Drift, SAML Signing Certificate Expiry และ Group/Permission Set Reconciliation; ไม่รวม Managed 24×7 Operations
 - **SCIM Group Provisioning ไม่รองรับ Nested Group Expansion** และ Sync/Deprovisioning มี Delay; การ Disable User ใน Entra ID ไม่ได้ทำให้ AWS Role Sessions ที่ออกไปแล้วหมดอายุทันที
 - Emergency Access ต้องแยกระหว่าง **IAM Identity Center Outage** (IdP อาจยังใช้งานได้) และ **Entra/IdP Outage** (ต้องมี Independent Recovery Path)
 - SAML/SCIM Integration ไม่ได้ทำให้ Conditional Access ควบคุม AWS Root, Direct IAM User Sign-in, Workload API Credentials หรือทุก AWS STS Session โดยตรง
@@ -164,6 +231,8 @@
 
 - [AWS — Configure SAML and SCIM with Microsoft Entra ID](https://docs.aws.amazon.com/singlesignon/latest/userguide/idp-microsoft-entra.html)
 - [AWS — Change Your Identity Source](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-change.html)
+- [AWS — Identity Source Change Considerations](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-considerations.html)
+- [AWS — SCIM Provisioning and Token Expiry](https://docs.aws.amazon.com/singlesignon/latest/userguide/provision-automatically.html)
 - [AWS — External Identity Providers](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-idp.html)
 - [AWS — Emergency Access Configuration](https://docs.aws.amazon.com/singlesignon/latest/userguide/emergency-access-implementation.html)
 - [AWS — Understanding Authentication Sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/authconcept.html)
